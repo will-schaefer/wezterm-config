@@ -1,0 +1,50 @@
+# Grok AI Color Scheme - Cyberpunk Neon Theme
+# Primary: #FF007F (Neon Magenta), Accent: #00FFFF (Neon Cyan)
+
+[metadata]
+name = "Grok"
+author = "WezTerm AI Setup"
+
+[colors]
+foreground = "#F0F0F0"
+background = "#0A0A0F"
+cursor_bg = "#FF007F"
+cursor_fg = "#0A0A0F"
+cursor_border = "#FF007F"
+selection_bg = "#3D1A2D"
+selection_fg = "#F0F0F0"
+
+# Normal colors
+ansi = [
+    "#121218",  # black
+    "#FF007F",  # red (primary - neon magenta)
+    "#00FF9F",  # green (neon green)
+    "#FFE600",  # yellow (neon yellow)
+    "#00B4FF",  # blue (neon blue)
+    "#BD00FF",  # magenta (neon purple)
+    "#00FFFF",  # cyan (accent - neon cyan)
+    "#D0D0D0",  # white
+]
+
+# Bright colors
+brights = [
+    "#2A2A35",  # bright black
+    "#FF4D9F",  # bright red
+    "#4DFFBF",  # bright green
+    "#FFEB4D",  # bright yellow
+    "#4DC9FF",  # bright blue
+    "#D44DFF",  # bright magenta
+    "#4DFFFF",  # bright cyan
+    "#F0F0F0",  # bright white
+]
+
+[colors.tab_bar]
+background = "#0A0A0F"
+
+[colors.tab_bar.active_tab]
+bg_color = "#FF007F"
+fg_color = "#0A0A0F"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#121218"
+fg_color = "#D0D0D0"

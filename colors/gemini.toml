@@ -1,0 +1,50 @@
+# Gemini AI Color Scheme - Google Blue/Green Theme
+# Primary: #4285F4 (Google Blue), Accent: #34A853 (Google Green)
+
+[metadata]
+name = "Gemini"
+author = "WezTerm AI Setup"
+
+[colors]
+foreground = "#E8EAED"
+background = "#0D1117"
+cursor_bg = "#4285F4"
+cursor_fg = "#0D1117"
+cursor_border = "#4285F4"
+selection_bg = "#1F3354"
+selection_fg = "#E8EAED"
+
+# Normal colors
+ansi = [
+    "#161B22",  # black
+    "#EA4335",  # red (Google Red)
+    "#34A853",  # green (Google Green - accent)
+    "#FBBC04",  # yellow (Google Yellow)
+    "#4285F4",  # blue (primary)
+    "#A142F4",  # magenta (Google Purple)
+    "#24C1E0",  # cyan (Google Cyan)
+    "#C9D1D9",  # white
+]
+
+# Bright colors
+brights = [
+    "#30363D",  # bright black
+    "#F28B82",  # bright red
+    "#81C995",  # bright green
+    "#FDD663",  # bright yellow
+    "#8AB4F8",  # bright blue
+    "#C58AF9",  # bright magenta
+    "#78D9EC",  # bright cyan
+    "#E8EAED",  # bright white
+]
+
+[colors.tab_bar]
+background = "#0D1117"
+
+[colors.tab_bar.active_tab]
+bg_color = "#4285F4"
+fg_color = "#0D1117"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#161B22"
+fg_color = "#C9D1D9"
