@@ -11,9 +11,9 @@ return {
 
    -- cursor
    animation_fps = 120,
-   cursor_blink_ease_in = 'EaseInElastic', -- Aurora-style bounce
-   cursor_blink_ease_out = 'EaseOutElastic',
-   default_cursor_style = 'BlinkingBlock', -- Back to blinking for animation
+   cursor_blink_ease_in = 'EaseIn', -- Corrected from EaseInElastic
+   cursor_blink_ease_out = 'EaseOut', -- Corrected from EaseOutElastic
+   default_cursor_style = 'BlinkingBlock',
    cursor_blink_rate = 700,
 
    -- color scheme
