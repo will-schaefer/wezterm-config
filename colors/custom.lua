@@ -2,7 +2,7 @@
 -- stylua: ignore
 local palette = {
    background = '#2E3440',
-   foreground = '#E5E9F0',
+   foreground = '#FFFFFF', -- Bright White for better visibility
    cursor     = '#D4A04A',
    selection  = '#4C566A',
 
