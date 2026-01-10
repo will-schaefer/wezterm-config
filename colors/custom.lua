@@ -1,96 +1,94 @@
--- Grok-inspired cyberpunk neon theme
+-- Gemini-Inspired "Electric Nord" Theme
 -- stylua: ignore
-local grok = {
-   rosewater = '#FF007F',  -- Neon Magenta primary
-   flamingo  = '#FF007F',
-   pink      = '#FF007F',
-   mauve     = '#BD00FF',  -- Neon Purple
-   red       = '#FF007F',  -- Neon Magenta
-   maroon    = '#FF007F',
-   peach     = '#FFE600',  -- Neon Yellow
-   yellow    = '#FFE600',
-   green     = '#00FF9F',  -- Neon Green
-   teal      = '#00FFFF',  -- Neon Cyan
-   sky       = '#00FFFF',
-   sapphire  = '#00B4FF',  -- Neon Blue
-   blue      = '#00B4FF',
-   lavender  = '#BD00FF',
-   text      = '#F0F0F0',  -- Bright white text
-   subtext1  = '#D0D0D0',
-   subtext0  = '#A0A0A0',
-   overlay2  = '#5A5A6E',
-   overlay1  = '#4A4A5E',
-   overlay0  = '#3A3A4E',
-   surface2  = '#3D1A2D',  -- Magenta-tinted surface
-   surface1  = '#121218',
-   surface0  = '#0D0D12',
-   base      = '#0A0A0F',  -- Very dark background
-   mantle    = '#050508',
-   crust     = '#020203',
-} 
-local mocha = grok  -- Use Grok colors as default
+local palette = {
+   background = '#2E3440',
+   foreground = '#E5E9F0',
+   cursor     = '#D4A04A',
+   selection  = '#4C566A',
+
+   -- Electric ANSI Colors
+   black      = '#3B4252',
+   red        = '#FF5C57', -- Electric Red
+   green      = '#5AF78E', -- Electric Green
+   yellow     = '#F3F99D', -- Electric Yellow
+   blue       = '#57C7FF', -- Electric Blue
+   purple     = '#FF6AC1', -- Neon Pink / Purple
+   cyan       = '#9AEDFE', -- Electric Cyan
+   white      = '#F1F1F0',
+
+   -- Bright Variants
+   brightBlack  = '#4C566A',
+   brightRed    = '#FF6E67',
+   brightGreen  = '#5AF78E',
+   brightYellow = '#F3F99D',
+   brightBlue   = '#57C7FF',
+   brightPurple = '#FF92DF', -- Light Purple / Pink
+   brightCyan   = '#A4FFFF',
+   brightWhite  = '#FFFFFF',
+}
 
 local colorscheme = {
-   foreground = mocha.text,
-   background = 'rgba(8, 8, 12, 0.85)',  -- Darker gray, 85% opaque
-   cursor_bg = '#00FFFF',  -- Neon Cyan - POPS
-   cursor_border = '#00FFFF',
-   cursor_fg = mocha.crust,
-   selection_bg = mocha.surface2,
-   selection_fg = mocha.text,
-   -- CGA-inspired ANSI palette for a 70s/80s terminal vibe.
+   foreground = palette.foreground,
+   background = palette.background,
+   cursor_bg = palette.cursor,
+   cursor_border = palette.cursor,
+   cursor_fg = palette.background,
+   selection_bg = palette.selection,
+   selection_fg = palette.foreground,
+
    ansi = {
-      '#000000', -- black
-      '#AA0000', -- red
-      '#00AA00', -- green
-      '#AA5500', -- brown/yellow
-      '#0000AA', -- blue
-      '#AA00AA', -- magenta
-      '#00AAAA', -- cyan
-      '#AAAAAA', -- light gray
+      palette.black,
+      palette.red,
+      palette.green,
+      palette.yellow,
+      palette.blue,
+      palette.purple,
+      palette.cyan,
+      palette.white,
    },
    brights = {
-      '#555555', -- dark gray
-      '#FF5555', -- bright red
-      '#55FF55', -- bright green
-      '#FFFF55', -- bright yellow
-      '#5555FF', -- bright blue
-      '#FF55FF', -- bright magenta
-      '#55FFFF', -- bright cyan
-      '#FFFFFF', -- white
+      palette.brightBlack,
+      palette.brightRed,
+      palette.brightGreen,
+      palette.brightYellow,
+      palette.brightBlue,
+      palette.brightPurple,
+      palette.brightCyan,
+      palette.brightWhite,
    },
+
    tab_bar = {
-      background = 'rgba(0, 0, 0, 0.8)',
+      background = '#242933', -- Nord Mantle
       active_tab = {
-         bg_color = mocha.surface2,
-         fg_color = mocha.text,
+         bg_color = '#2E3440', -- Nord Base
+         fg_color = palette.foreground,
       },
       inactive_tab = {
-         bg_color = mocha.surface0,
-         fg_color = mocha.subtext1,
+         bg_color = '#3B4252', -- Nord Surface0
+         fg_color = '#D8DEE9',
       },
       inactive_tab_hover = {
-         bg_color = mocha.surface0,
-         fg_color = mocha.text,
+         bg_color = '#434C5E',
+         fg_color = palette.foreground,
       },
       new_tab = {
-         bg_color = mocha.base,
-         fg_color = mocha.text,
+         bg_color = '#3B4252',
+         fg_color = palette.foreground,
       },
       new_tab_hover = {
-         bg_color = mocha.mantle,
-         fg_color = mocha.text,
+         bg_color = '#434C5E',
+         fg_color = palette.cursor,
          italic = true,
       },
    },
-   visual_bell = mocha.red,
+   visual_bell = palette.red,
    indexed = {
-      [16] = mocha.peach,
-      [17] = mocha.rosewater,
+      [16] = '#D08770', -- Orange/Peach
+      [17] = palette.cursor,
    },
-   scrollbar_thumb = mocha.surface2,
-   split = mocha.overlay0,
-   compose_cursor = mocha.flamingo,
+   scrollbar_thumb = '#4C566A',
+   split = '#3B4252',
+   compose_cursor = palette.cursor,
 }
 
 return colorscheme
