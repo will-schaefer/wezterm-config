@@ -2,8 +2,8 @@
 
 ## Phase 1: Initialization and Categorization
 - [x] Task: Create `conductor/personal-tech-stack.md` with the defined category structure (Core, CLI, SDKs, etc.) [273292e]
-- [~] Task: Populate the file with the *known* tools from the current `conductor/tech-stack.md` and the project files
-- [ ] Task: Ask user to list additional tools for the empty categories to complete the inventory
+- [x] Task: Populate the file with the *known* tools from the current `conductor/tech-stack.md` and the project files [ccb66fd]
+- [~] Task: Ask user to list additional tools for the empty categories to complete the inventory
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Initialization and Categorization' (Protocol in workflow.md)
 
 ## Phase 2: Personal Stack Documentation
