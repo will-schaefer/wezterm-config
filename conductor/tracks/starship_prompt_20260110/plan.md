@@ -10,7 +10,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md) fba856e
     *   **Goal:** Present the 3 options to the user and get a final decision.
 
-## Phase 2: Implementation & Refinement
+## Phase 2: Implementation & Refinement [checkpoint: 58bd5f4]
 - [x] Task: Apply Selected Theme a946b5f
     - [ ] Sub-task: Backup existing `starship.toml`.
     - [ ] Sub-task: Overwrite `starship.toml` with the content of the selected prototype.
