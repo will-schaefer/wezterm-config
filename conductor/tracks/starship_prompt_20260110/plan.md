@@ -14,7 +14,7 @@
 - [x] Task: Apply Selected Theme a946b5f
     - [ ] Sub-task: Backup existing `starship.toml`.
     - [ ] Sub-task: Overwrite `starship.toml` with the content of the selected prototype.
-- [ ] Task: Tune Directory Truncation
+- [x] Task: Tune Directory Truncation f6d4948
     - [ ] Sub-task: Verify `truncation_length` and `fish_style_pwd_dir_length` settings match the "smart truncation" requirement.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
     *   **Goal:** User confirms the new prompt looks correct in their actual terminal.
