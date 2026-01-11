@@ -8,7 +8,7 @@ local font_family = 'CodeNewRoman Nerd Font Mono'
 -- local font_family = 'Maple Mono NF'
 -- local font_family = 'Hack Nerd Font Mono'
 
-local font_size = 16  -- Matching Windows Terminal
+local font_size = 18  -- Matching Windows Terminal
 
 return {
    font = wezterm.font({
