@@ -11,7 +11,7 @@
     *   **Goal:** Present the 3 options to the user and get a final decision.
 
 ## Phase 2: Implementation & Refinement
-- [ ] Task: Apply Selected Theme
+- [x] Task: Apply Selected Theme a946b5f
     - [ ] Sub-task: Backup existing `starship.toml`.
     - [ ] Sub-task: Overwrite `starship.toml` with the content of the selected prototype.
 - [ ] Task: Tune Directory Truncation
