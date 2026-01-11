@@ -5,6 +5,7 @@
 local wezterm = require('wezterm')
 local Cells = require('utils.cells')
 local OptsValidator = require('utils.opts-validator')
+local starlight = require('config.starlight')
 
 ---
 -- =======================================
@@ -91,20 +92,52 @@ local RENDER_VARIANTS = {
 }
 
 
+local colors_custom = require('colors.custom')
+
+local nord = {
+   base      = '#2e3440',
+   mantle    = '#242933',
+   surface0  = '#3b4252',
+   surface1  = '#434c5e',
+   surface2  = '#4c566a',
+   text      = '#e5e9f0',
+   subtext0  = '#d8dee9',
+   
+   -- Muted High Contrast Palette
+   purple    = '#b48ead',
+   teal      = '#8fbcbb',
+   pink      = '#ff92df', -- Custom bright pink/flamingo
+   green     = '#a3be8c', -- Muted green
+   blue      = '#81a1c1',
+   yellow    = '#ebcb8b',
+   peach     = '#d08770',
+}
+
+local rainbow = {
+   nord.purple,
+   nord.teal,
+   nord.pink,
+   nord.green,
+   nord.blue,
+   nord.yellow,
+   nord.peach,
+}
+
 ---@type table<string, Cells.SegmentColors>
 -- stylua: ignore
 local colors = {
-   text_default          = { bg = '#45475A', fg = '#1C1B19' },
-   text_hover            = { bg = '#5D87A3', fg = '#1C1B19' },
-   text_active           = { bg = '#74c7ec', fg = '#11111B' },
+   -- Base defaults (will be overridden dynamically)
+   text_default          = { bg = nord.surface0, fg = nord.subtext0 },
+   text_hover            = { bg = nord.surface1, fg = nord.text },
+   text_active           = { bg = nord.purple,   fg = nord.base },
 
-   unseen_output_default = { bg = '#45475A', fg = '#FFA066' },
-   unseen_output_hover   = { bg = '#5D87A3', fg = '#FFA066' },
-   unseen_output_active  = { bg = '#74c7ec', fg = '#FFA066' },
+   unseen_output_default = { bg = nord.surface0, fg = nord.gold },
+   unseen_output_hover   = { bg = nord.surface1, fg = nord.gold },
+   unseen_output_active  = { bg = nord.purple,   fg = nord.base },
 
-   scircle_default       = { bg = 'rgba(0, 0, 0, 0.4)', fg = '#45475A' },
-   scircle_hover         = { bg = 'rgba(0, 0, 0, 0.4)', fg = '#5D87A3' },
-   scircle_active        = { bg = 'rgba(0, 0, 0, 0.4)', fg = '#74C7EC' },
+   scircle_default       = { bg = nord.mantle,   fg = nord.surface0 },
+   scircle_hover         = { bg = nord.mantle,   fg = nord.surface1 },
+   scircle_active        = { bg = nord.mantle,   fg = nord.purple },
 }
 
 ---
@@ -253,12 +286,29 @@ end
 ---@param event_opts Event.TabTitleOptions
 ---@param is_active boolean
 ---@param hover boolean
-function Tab:update_cells(event_opts, is_active, hover)
-   local tab_state = 'default'
+---@param tab_index number
+function Tab:update_cells(event_opts, is_active, hover, tab_index)
+   -- Determine specific color for this tab index
+   local specific_color = rainbow[(tab_index % #rainbow) + 1]
+
+   local fg_color = nord.text
+   local bg_color = nord.surface0
+   local scircle_bg = nord.mantle
+   local scircle_fg = nord.surface0
+
    if is_active then
-      tab_state = 'active'
+      bg_color = specific_color
+      fg_color = nord.base
+      scircle_fg = specific_color
    elseif hover then
-      tab_state = 'hover'
+      bg_color = nord.surface1
+      fg_color = specific_color -- Hint at color on hover
+      scircle_fg = nord.surface1
+   else
+      -- Inactive: Dark bg, but text is colored to match the tab's identity
+      bg_color = nord.surface0
+      fg_color = specific_color
+      scircle_fg = nord.surface0
    end
 
    self.cells:update_segment_text('title', ' ' .. self.title)
@@ -276,14 +326,25 @@ function Tab:update_cells(event_opts, is_active, hover)
       )
    end
 
+   -- Apply dynamic colors
+   local text_colors = { bg = bg_color, fg = fg_color }
+   local scircle_left_colors = { bg = scircle_bg, fg = scircle_fg }
+   local scircle_right_colors = { bg = scircle_bg, fg = scircle_fg }
+   local unseen_colors = { bg = bg_color, fg = nord.gold }
+   
+   -- Special override for active unread (keep high contrast)
+   if is_active then
+       unseen_colors.fg = nord.base
+   end
+
    self.cells
-      :update_segment_colors('scircle_left', colors['scircle_' .. tab_state])
-      :update_segment_colors('admin', colors['text_' .. tab_state])
-      :update_segment_colors('wsl', colors['text_' .. tab_state])
-      :update_segment_colors('title', colors['text_' .. tab_state])
-      :update_segment_colors('unseen_output', colors['unseen_output_' .. tab_state])
-      :update_segment_colors('padding', colors['text_' .. tab_state])
-      :update_segment_colors('scircle_right', colors['scircle_' .. tab_state])
+      :update_segment_colors('scircle_left', scircle_left_colors)
+      :update_segment_colors('admin', text_colors)
+      :update_segment_colors('wsl', text_colors)
+      :update_segment_colors('title', text_colors)
+      :update_segment_colors('unseen_output', unseen_colors)
+      :update_segment_colors('padding', text_colors)
+      :update_segment_colors('scircle_right', scircle_right_colors)
 end
 
 ---@return FormatItem[] (ref: https://wezfurlong.org/wezterm/config/lua/wezterm/format.html)
@@ -316,11 +377,7 @@ M.setup = function(opts)
    wezterm.on('tabs.manual-update-tab-title', function(window, pane)
       window:perform_action(
          wezterm.action.PromptInputLine({
-            description = wezterm.format({
-               { Foreground = { Color = '#FFFFFF' } },
-               { Attribute = { Intensity = 'Bold' } },
-               { Text = 'Enter new name for tab' },
-            }),
+            description = starlight.prompt_for_pane(pane).formatted,
             action = wezterm.action_callback(function(_window, _pane, line)
                if line ~= nil then
                   local tab = window:active_tab()
@@ -357,11 +414,14 @@ M.setup = function(opts)
          tab_list[tab.tab_id] = Tab:new()
          tab_list[tab.tab_id]:set_info(valid_opts, tab, max_width)
          tab_list[tab.tab_id]:create_cells()
+         -- Pass tab_index to update_cells
+         tab_list[tab.tab_id]:update_cells(valid_opts, tab.is_active, hover, tab.tab_index)
          return tab_list[tab.tab_id]:render()
       end
 
       tab_list[tab.tab_id]:set_info(valid_opts, tab, max_width)
-      tab_list[tab.tab_id]:update_cells(valid_opts, tab.is_active, hover)
+      -- Pass tab_index to update_cells
+      tab_list[tab.tab_id]:update_cells(valid_opts, tab.is_active, hover, tab.tab_index)
       return tab_list[tab.tab_id]:render()
    end)
 end

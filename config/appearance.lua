@@ -20,15 +20,8 @@ return {
    colors = colors,
 
    -- background
-   background = {
-      {
-         source = { Color = '#2E3440' },
-         height = '100%',
-         width = '100%',
-         opacity = 0.85,
-      },
-   },
-
+   -- Removed explicit background layer to allow window_background_opacity to work
+   
    -- scrollbar
    enable_scroll_bar = true,
 

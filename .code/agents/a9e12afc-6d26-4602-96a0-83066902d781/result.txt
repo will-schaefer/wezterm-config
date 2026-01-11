@@ -1,0 +1,114 @@
+Perfect. Now I have enough context to draft a comprehensive plan. Let me create a detailed analysis:
+
+## Analysis & Implementation Plan: Edit Prompt via "Starlight" Config
+
+### Key Findings
+
+After analyzing your WezTerm configuration repo, here's what I discovered:
+
+**Current State:**
+- Your config uses **status bars** (left/right) and **tab titles** for UI customization
+- **No "starlight" exists** in the repository (confirmed via grep)
+- The repo contains shell launch configurations for **Fish, Bash, and Zsh** shells
+- Prompt customization currently lives in **shell configuration** (outside WezTerm, in `~/.config/fish`, `~/.bashrc`, `~/.zshrc`, etc.)
+
+### Critical Ambiguity: What is "Starlight"?
+
+The term **"starlight" is ambiguous** in this context. It could refer to:
+
+1. **Starship** – A cross-shell prompt framework (most likely)
+   - Popular prompt customizer with `.config/starship.toml`
+   - Could integrate with WezTerm status bars
+   
+2. **A custom prompt UI component** you want to add to WezTerm
+   - New status bar segment
+   - Custom tab indicator
+   
+3. **A Lua module** you plan to create in this config repo
+   - New event handler or utility
+
+**You need to clarify:** Which of these did you intend?
+
+---
+
+### Proposed Plan (Assuming Starship Prompt Integration)
+
+If you meant **Starship prompt configuration**, here's the plan:
+
+#### **Scope**
+Add WezTerm integration with Starship shell prompt configuration, allowing you to customize the shell prompt appearance via Starship's `~/.config/starship.toml` file while maintaining WezTerm's status bars.
+
+#### **Files to Create/Modify**
+
+1. **`config/prompt.lua`** (NEW)
+   - Centralized Starship configuration management
+   - Export Starship config path and validation helpers
+   
+2. **`~/.config/starship.toml`** (EXTERNAL, not in repo)
+   - User's Starship prompt configuration
+   - WezTerm would read/reference this via shell environment
+   
+3. **`config/launch.lua`** (MODIFY)
+   - Add Starship initialization in shell args if needed
+   - Set `STARSHIP_CONFIG` environment variable
+
+4. **`events/right-status.lua`** (OPTIONAL)
+   - Could display Starship status info in WezTerm's status bar (if desired)
+
+#### **Action Items**
+
+1. **Confirm Starship integration model:**
+   - Should WezTerm display Starship info in status bar, or just rely on shell prompt?
+   - Which shells (Fish/Bash/Zsh) need Starship?
+
+2. **Create prompt configuration module** (`config/prompt.lua`)
+   - Detect if Starship is installed
+   - Validate Starship config file exists
+   - Provide helpers to read Starship config
+
+3. **Update shell launch config** (`config/launch.lua`)
+   - Add Starship initialization to shell startup
+   - Set environment variables for Starship path
+
+4. **Optional: Enhance status bar** (`events/right-status.lua`)
+   - Add Starship-aware segments if desired
+
+5. **Document setup instructions**
+   - Explain Starship installation + config location
+   - Note shell compatibility
+
+#### **Testing Plan**
+
+1. Install Starship: `cargo install starship`
+2. Create `~/.config/starship.toml` with test configuration
+3. Launch WezTerm and verify:
+   - Shell prompt displays Starship formatting
+   - Status bars still render correctly
+   - No conflicts between WezTerm UI and Starship prompt
+4. Test each shell (Fish, Bash, Zsh) separately
+
+#### **Risks**
+
+- **Shell prompt rendering issues**: Starship output might conflict with WezTerm's custom status bars
+- **Installation dependency**: Starship must be installed separately; config won't work without it
+- **Multi-shell complexity**: Different shell init files needed (`.fishrc`, `.bashrc`, `.zshrc`)
+- **WSL-specific issues**: Windows WSL may need special Starship path handling
+
+#### **Open Questions**
+
+1. **Is "starlight" actually "Starship"?** (Or something else?)
+2. **Do you want WezTerm's status bars to display Starship info, or keep them separate?**
+3. **Which shells need Starship:** All (Fish/Bash/Zsh) or just one?
+4. **Configuration scope:** Store Starship config in this repo, or rely on user's `~/.config/starship.toml`?
+5. **Should WezTerm validate Starship installation** at startup?
+
+---
+
+### Next Steps
+
+**Before I implement:** Please clarify:
+- What does "starlight" refer to?
+- What exactly should change about your shell prompt appearance?
+- Should WezTerm's status bars be involved, or is this purely shell-level customization?
+
+Once you clarify, I can provide a detailed implementation plan with code changes.

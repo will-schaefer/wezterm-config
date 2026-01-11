@@ -1,0 +1,71 @@
+I will begin by exploring the codebase to understand the current configuration structure and search for any references to "prompt", "starship", or "starlight" that might have been missed.
+I will read the `README.md` file to see if there are any mentions of shell prompts, themes, or "starlight" that might clarify the user's request.
+I will read the `wezterm.lua` file to understand the entry point and how modules are loaded, which might give clues about where a "starlight" config could be integrated.
+I will read `config/init.lua` to understand how the `Config` object is structured and how it manages the various configuration modules.
+I will read `events/left-status.lua` and `events/right-status.lua` to see if they contain any logic related to the status line or "prompt" that might be relevant to the user's request.
+I will read `events/right-status.lua` to see how the right status bar is configured and if it contains any "prompt" or "starlight" related logic.
+I will use `glob` to search for any files named "starlight" anywhere in the repository to see if I missed anything.
+I will perform a web search for "starlight wezterm" or "starlight prompt" to see if it refers to a specific theme, plugin, or configuration that I should be aware of.
+I will read `colors/custom.lua` to see if there are any custom color definitions or themes that might relate to "starlight".
+I will read `colors/gemini.toml` to see its structure and content, as it might be a template for other themes like "starlight".
+I will search for "colors" within the `config/` directory to understand how the color schemes defined in the TOML files are loaded and used.
+I will read `config/appearance.lua` to see how it uses the `colors.custom` module and if there are other color-related settings.
+I will read `config/profiles.lua` to see if it uses the other color schemes from the `colors/` directory.
+I will read `config/launch.lua` to see if there are any other launch configurations or profiles that might be related to "starlight".
+I will read `events/tab-title.lua` to see how `PromptInputLine` is used and if it provides any insights into how a "starlight" prompt might be configured.
+I will read `config/bindings.lua` to check for any key bindings or actions that might be related to "starlight" or custom input selectors.
+I will read `colors/claude.toml` to see if it follows the same structure as `gemini.toml` and to further understand how these AI-themed color schemes are defined.
+I will search for `CLI_PROFILE` in the repository to see how it's used and if it provides any clues about how the prompt might be edited through a "starlight" config.
+I will read `colors/CHANGELOD.md` to see if it contains any information about upcoming themes or changes, including anything related to "starlight".
+I will read `utils/backdrops.lua` to see if "starlight" is mentioned as a backdrop or if there's any related logic.
+I will read `config/general.lua` to see if there are any general settings or configurations that might be relevant to the user's request.
+I will search for "starlight" within the `inspo/` directory to see if there are any references or inspirations related to it.
+I will read `utils/cells.lua` to see how it handles segments and formatting, which might be relevant if "starlight" refers to a new status bar or prompt style.
+I will search for "prompt" in the codebase again, this time looking for variables or configuration options that might be related to it.
+I will read `archive/profiles.lua` to see if a "starlight" profile existed previously or if there's any other relevant history.
+I will read `archive/codex.lua` to see if it contains any information that might be relevant to the "starlight" request.
+Based on my investigation of the codebase, I have identified that your WezTerm configuration uses a modular system with specific **AI CLI Profiles** (Claude, Gemini, Grok, Codex). Each profile has its own color scheme (stored as TOML in `colors/`), environment variables, and key bindings.
+
+It appears "Starlight" is a new AI profile or theme you wish to integrate, and you want to be able to customize the WezTerm prompt (specifically the `PromptInputLine` used for actions like renaming tabs) through this configuration.
+
+### Implementation Plan
+
+#### 1. Requirements & Scope
+- **New Theme**: Create a "Starlight" color scheme with a celestial aesthetic (deep indigo/black background, bright white/silver foreground).
+- **New Profile**: Add a "Starlight" profile to the AI launcher system.
+- **Prompt Customization**: Enable dynamic prompt descriptions in WezTerm based on the active profile.
+- **Key Bindings**: Map the new profile to a consistent shortcut (e.g., `Ctrl+Alt+S`).
+
+#### 2. Proposed Changes
+
+**A. Create `colors/starlight.toml`**
+- Define a high-contrast celestial theme.
+- Primary: `#F8F8FF` (Ghost White), Background: `#08080C` (Deep Space).
+- Accents: `#E0E0FF` (Starlight Blue) and `#B596E5` (Soft Purple).
+
+**B. Update `config/profiles.lua`**
+- Add the `starlight` entry to `M.profiles`.
+- Include a new field `prompt_description = '✨ Starlight: '` to satisfy the "edit the prompt through starlight config" requirement.
+- Set `env = { CLI_PROFILE = 'starlight' }`.
+
+**C. Update `config/bindings.lua`**
+- Add a key binding for the new profile:
+  ```lua
+  { key = 's', mods = 'CTRL|ALT', action = profiles.spawn_profile_action('starlight') }
+  ```
+
+**D. Update `events/tab-title.lua`**
+- Modify the `tabs.manual-update-tab-title` event listener to check the `CLI_PROFILE` environment variable.
+- Dynamically update the `PromptInputLine` description to use the `prompt_description` defined in the active profile's configuration.
+
+#### 3. Testing Plan
+- **Profile Launch**: Trigger `Ctrl+Alt+S` to ensure a new window spawns with the Starlight theme and environment.
+- **Prompt Verification**: Use `Alt+0` (default rename tab) to verify that the rename prompt now shows the customized "Starlight" branding when the profile is active.
+- **Visual Check**: Ensure the new TOML color scheme is correctly picked up by WezTerm.
+
+#### 4. Risks & Ambiguity
+- **Ambiguity**: "Starlight" could potentially refer to the "Starship" prompt engine (noted in your `README.md` badge). However, given the existing `claude`, `gemini`, and `grok` profiles, adding a `starlight` profile is more idiomatic to this specific repository.
+- **Command Availability**: This plan assumes a `starlight` CLI exists in your path (similar to `claude` or `gemini`). If not, the profile can be adjusted to launch a default shell with the Starlight theme.
+
+#### 5. Open Questions
+- Do you want the **shell prompt** (e.g., Starship) to change its look when "Starlight" is active, or are you primarily focused on WezTerm's internal UI prompts (like tab renaming)? My plan currently addresses the latter while providing the environment hooks for the former.

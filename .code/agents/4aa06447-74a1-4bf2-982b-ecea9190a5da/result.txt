@@ -1,0 +1,96 @@
+Now I have a comprehensive view of the repository. Let me provide the plan.
+
+---
+
+## Plan: Edit Prompt via "Starlight" Config for WezTerm
+
+### Ambiguity Alert
+
+The term **"starlight"** is ambiguous. No `starlight` string exists in this repo. Possible interpretations:
+
+| Interpretation | Likelihood | Evidence |
+|----------------|------------|----------|
+| **Starship prompt** (shell prompt customizer) | High | README mentions `starship` in badge URL; common shell prompt tool |
+| **Custom WezTerm color scheme named "Starlight"** | Medium | User may want to create a new theme |
+| **WezTerm's PromptInputLine UI** | Low | Exists in `events/tab-title.lua` for tab renaming |
+| **Left/Right status bar "prompt"** | Low | `left-status.lua` and `right-status.lua` exist |
+
+**Most likely intent:** User wants to configure **Starship** (the cross-shell prompt customizer) and have it integrate visually with this WezTerm config.
+
+---
+
+### Current Repository State
+
+- **Entry point:** `wezterm.lua` - orchestrates config modules and event handlers
+- **Prompt-related UI:**
+  - `events/tab-title.lua:376-394` - Uses `PromptInputLine` for tab renaming
+  - `events/left-status.lua` - Shows leader key/key table indicators
+  - `events/right-status.lua` - Shows date/battery in status bar
+- **Color scheme:** `colors/custom.lua` - Nord-based theme with custom bright colors
+- **No Starship/shell prompt integration** currently exists in this repo
+
+---
+
+### Requirements (Pending Clarification)
+
+1. Clarify what "starlight" refers to
+2. Define scope: shell prompt (Starship) vs WezTerm UI elements
+
+---
+
+### Proposed Scope & Action Items
+
+#### Option A: Starship Shell Prompt Integration
+
+If the goal is to configure Starship prompt to match WezTerm theme:
+
+| Step | File(s) | Action |
+|------|---------|--------|
+| 1 | `~/.config/starship.toml` (external) | Create/edit Starship config with Nord-bright colors from `colors/custom.lua` |
+| 2 | `config/launch.lua` | Optionally set `STARSHIP_CONFIG` env var for launched shells |
+| 3 | `colors/custom.lua` | Reference color values to ensure consistency |
+
+**Note:** Starship config lives outside this WezTerm repo (typically `~/.config/starship.toml`).
+
+#### Option B: New WezTerm Color Scheme Named "Starlight"
+
+| Step | File(s) | Action |
+|------|---------|--------|
+| 1 | `colors/starlight.lua` | Create new color scheme module |
+| 2 | `config/appearance.lua:21` | Change `require('colors.custom')` to `require('colors.starlight')` |
+| 3 | `events/tab-title.lua` | Update hardcoded `nord` colors to use new scheme |
+
+#### Option C: Modify WezTerm PromptInputLine UI
+
+| Step | File(s) | Action |
+|------|---------|--------|
+| 1 | `events/tab-title.lua:379-382` | Modify `wezterm.format()` styling for the prompt dialog |
+| 2 | `config/appearance.lua:45-48` | Adjust `command_palette_*` colors (affects similar UI) |
+
+---
+
+### Testing Strategy
+
+1. **Visual verification:** Launch WezTerm, check prompt/status bar appearance
+2. **Tab rename test:** Press `SUPER+0` to trigger `PromptInputLine`
+3. **Color consistency:** Compare terminal ANSI colors with prompt colors
+4. **If Starship:** Run `starship prompt` manually to verify formatting
+
+---
+
+### Risks
+
+| Risk | Mitigation |
+|------|------------|
+| Color mismatch between shell prompt and WezTerm | Export color values from `colors/custom.lua` to Starship config |
+| Breaking existing theme | Keep `colors/custom.lua` as fallback; create new file for changes |
+| Starship not installed | Check for Starship binary before referencing config |
+
+---
+
+### Open Questions (Requires User Input)
+
+1. **What does "starlight" mean?** Starship prompt? A color scheme name? Something else?
+2. **Which prompt?** Shell prompt (PS1/Starship) or WezTerm UI prompts (tab rename, command palette)?
+3. **If Starship:** Do you want the Starship config to live in this repo or externally?
+4. **Desired appearance:** Any specific colors/icons/segments you want in the prompt?

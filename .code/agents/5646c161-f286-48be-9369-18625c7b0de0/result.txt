@@ -1,0 +1,162 @@
+Based on my analysis of the WezTerm configuration repository, I can now provide you with a comprehensive implementation plan:
+
+---
+
+## IMPLEMENTATION PLAN: Edit Prompt via Starlight Config
+
+### AMBIGUITY ALERT ⚠️
+
+**Critical clarification needed:** The term "starlight config" is **ambiguous** in this context. Based on the repository analysis, there are **three possible interpretations**:
+
+1. **Starship Prompt** - You have Starship installed (`/home/will_schaefer/.local/bin/starship`), which is a cross-shell prompt customizer configured via `starship.toml`. The README.md contains a starship GitHub badge, suggesting this may be relevant.
+
+2. **WezTerm Status Bars** - The existing left/right status bars in WezTerm (`events/left-status.lua`, `events/right-status.lua`) that display key table indicators, battery, and date/time.
+
+3. **Tab Title Prompt** - The `PromptInputLine` feature in `events/tab-title.lua:378` that allows manual tab renaming via a prompt dialog.
+
+**Most likely interpretation:** You want to configure the **Starship shell prompt** to work with your WezTerm setup, possibly adding configuration to integrate it with the existing Nord-themed WezTerm UI.
+
+---
+
+### SCOPE
+
+**What would be modified:**
+- Potentially add WezTerm configuration to initialize/configure Starship prompt
+- May need to modify `config/launch.lua` to ensure Starship is loaded in shell sessions
+- Could involve creating a new config module for prompt customization
+- Might require integration with the existing Nord color theme
+
+**What would NOT be modified:**
+- Core tab title logic (`events/tab-title.lua`)
+- Existing status bars (`events/left-status.lua`, `events/right-status.lua`)
+- Terminal appearance settings (`config/appearance.lua`)
+
+---
+
+### REQUIREMENTS CLARIFICATION NEEDED
+
+**Before proceeding, you need to specify:**
+
+1. **Which "prompt" do you mean?**
+   - Shell prompt (Starship/Powerline/Oh-My-Posh)?
+   - WezTerm status bars?
+   - Tab renaming prompt dialog?
+
+2. **What is "starlight"?**
+   - Did you mean "Starship" (the shell prompt tool)?
+   - Is this a custom configuration preset name?
+   - A typo or autocorrect issue?
+
+3. **What changes do you want?**
+   - Colors/theme matching WezTerm Nord theme?
+   - Different prompt layout/segments?
+   - Integration with existing WezTerm status indicators?
+
+---
+
+### PROPOSED PLAN (Assuming Starship Prompt Configuration)
+
+**Files to create/modify:**
+
+1. **`config/prompt.lua`** (NEW)
+   - Configure Starship environment variables
+   - Set up prompt initialization for different shells (Fish, Bash, Zsh)
+   - Define Nord-themed color overrides for Starship
+
+2. **`wezterm.lua:16-21`** (MODIFY)
+   - Add `:append(require('config.prompt'))` to config chain
+
+3. **`config/launch.lua:10,25`** (MODIFY)
+   - Ensure Starship is initialized in default shell commands
+   - May need to adjust shell startup args
+
+**Action Items:**
+
+1. **Research Phase**
+   - Determine if Starship config file exists at `~/.config/starship.toml`
+   - Identify which shells are being used (Fish is primary based on config/launch.lua:10,25)
+   - Check if Starship is already auto-loading in shell profiles
+
+2. **Configuration Phase**
+   - Create WezTerm config module to set `STARSHIP_CONFIG` environment variable
+   - Define Nord-compatible colors for Starship segments
+   - Configure Starship presets/format string to match WezTerm aesthetic
+
+3. **Integration Phase**
+   - Add prompt config to WezTerm initialization chain
+   - Test with all configured shells (Fish, Bash, Zsh)
+   - Verify color consistency with existing Nord theme
+
+4. **Testing Phase**
+   - Launch WezTerm with default shell, verify Starship appears
+   - Test WSL domain (important: config/domains.lua:15-23)
+   - Check prompt in all launch menu options
+   - Verify no conflicts with existing status bars
+
+---
+
+### TESTING STRATEGY
+
+**Manual verification steps:**
+1. Start WezTerm with default profile → Starship prompt should render
+2. Test in WSL Ubuntu domain (Windows users) → Prompt appears correctly
+3. Test all launch menu shells → Starship works in each
+4. Verify colors match Nord theme from `events/tab-title.lua:96-113`
+5. Check that status bars (left/right) don't conflict with shell prompt
+
+**Edge cases:**
+- PowerShell/cmd compatibility (may not support Starship)
+- AI CLI profiles (claude, gemini, grok, codex) from `config/profiles.lua:19-61`
+- First launch without existing Starship config
+
+---
+
+### RISKS & CONSIDERATIONS
+
+**Technical risks:**
+1. **Starship not available in all shells** - PowerShell Desktop/Command Prompt don't support Starship well
+2. **Path issues in WSL** - Starship binary may not be in PATH when launching via `wsl.exe`
+3. **Performance impact** - Starship initialization can add 50-200ms to shell startup
+
+**User experience risks:**
+1. **Theme mismatch** - Starship colors may clash with Nord theme without proper configuration
+2. **Duplicate information** - Shell prompt + WezTerm status bars may show redundant info
+3. **Breaking existing workflows** - Users with custom shell prompts may not want Starship
+
+**Mitigation strategies:**
+- Make Starship opt-in via config flag
+- Provide Nord-themed Starship preset
+- Document how to disable if unwanted
+- Test thoroughly in WSL environment
+
+---
+
+### OPEN QUESTIONS
+
+1. Do you have an existing `starship.toml` config you want to integrate?
+2. Should Starship be enabled for all shells or just specific ones?
+3. Do you want the WezTerm status bars to be modified/hidden when using Starship?
+4. Should the AI CLI profiles (Claude, Gemini, etc.) use Starship or custom prompts?
+5. **Most important:** Can you clarify what "starlight" refers to? Is it:
+   - A typo for "Starship"?
+   - A specific Starship preset/theme?
+   - A different prompt tool entirely?
+
+---
+
+### RECOMMENDED NEXT STEPS
+
+**Before implementation:**
+1. **Clarify ambiguity** - Confirm "starlight" = "Starship" or something else
+2. **Define requirements** - Specify exact prompt changes desired
+3. **Gather context** - Share existing Starship config if any exists
+
+**If confirmed as Starship integration:**
+1. Create `config/prompt.lua` with Starship environment setup
+2. Add Nord-themed Starship preset
+3. Integrate into WezTerm config chain
+4. Test across all configured shells and domains
+
+---
+
+**Please clarify the "starlight" terminology and your specific goals so I can refine this plan into actionable implementation steps.**

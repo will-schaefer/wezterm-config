@@ -20,5 +20,5 @@
     *   **Goal:** User confirms the new prompt looks correct in their actual terminal.
 
 ## Phase 3: Cleanup
-- [ ] Task: Remove prototype files
+- [~] Task: Remove prototype files
     - [ ] Sub-task: Delete the unused `starship.*.toml` files.

@@ -1,0 +1,35 @@
+I will start by searching for references to "starship" or "prompt" to understand how the prompt is currently handled or if "starlight" might be a typo for "starship". I'll also check the main configuration files.
+I will read `config/launch.lua` and `events/right-status.lua` to see if there are any references to shell configurations or status bar implementations that might clarify the user's request.
+I will verify if Nerd Fonts are enabled by reading `config/fonts.lua`, and then check for the existence of `starship.toml` in the `~/.config` directory to confirm the location of the Starship configuration.
+I will list the contents of the `/home/will_schaefer/.config` directory to check for the presence of `starship.toml`.
+Based on my investigation, "starlight" is likely a typo for "Starship", a popular shell prompt often used with WezTerm. I found no "starlight" or `starship.toml` files in the current repository, and I am restricted from accessing files outside of it (like `~/.config/starship.toml`).
+
+Here is the plan to "edit the prompt through starlight config":
+
+### Plan: Configure Starship Prompt in WezTerm Repo
+
+**1. Clarification & Scope**
+*   **Assumption**: You want to configure the **Starship** shell prompt (`starship.rs`) which runs inside your WezTerm.
+*   **Goal**: Create/Manage the Starship configuration within your `wezterm-config` repository so it is versioned along with your terminal config.
+*   **Alternative**: If you meant WezTerm's internal status bar (date/battery), that is located in `events/right-status.lua`.
+
+**2. Action Items**
+*   **Create Configuration**: Create a new file `starship.toml` in the root or a `config/` subdirectory of your repo.
+*   **Populate Defaults**: Add a basic Starship configuration (e.g., setting a theme or custom modules) to start.
+*   **Link to System**: Since the standard location is `~/.config/starship.toml`, you will need to symlink this new file or set the `STARSHIP_CONFIG` environment variable in your shell profile (e.g., `.zshrc`, `.bashrc`, or `config.fish`).
+*   **WezTerm Integration**: Ensure `config/fonts.lua` continues to use a Nerd Font (currently `iMWritingMono Nerd Font Mono`), which is required for Starship icons.
+
+**3. Proposed File Structure**
+```text
+/home/will_schaefer/wezterm-config/
+├── starship.toml      <-- NEW: Your prompt configuration
+├── wezterm.lua
+└── ...
+```
+
+**4. Open Questions**
+*   Do you already have a `starship.toml` at `~/.config/starship.toml` that you want to import/migrate?
+*   Did you mean the *WezTerm* status bar (top/bottom bar with time/battery) instead of the shell command prompt?
+
+**5. Next Steps**
+*   Please confirm if you'd like to proceed with creating a `starship.toml` in this repository.

@@ -2,6 +2,7 @@ local wezterm = require('wezterm')
 local launch_menu = require('config.launch').launch_menu
 local domains = require('config.domains')
 local Cells = require('utils.cells')
+local starlight = require('config.starlight')
 
 local nf = wezterm.nerdfonts
 local act = wezterm.action
@@ -98,12 +99,13 @@ M.setup = function()
       end
 
       if default_action and button == 'Right' then
+         local prompt = starlight.prompt_for_pane(pane)
          window:perform_action(
             act.InputSelector({
-               title = 'InputSelector: Launch Menu',
+               title = prompt.icon,
                choices = choices,
                fuzzy = true,
-               fuzzy_description = nf.md_rocket .. ' Select a lauch item: ',
+               fuzzy_description = prompt.icon,
                action = wezterm.action_callback(function(_window, _pane, id, label)
                   if not id and not label then
                      return

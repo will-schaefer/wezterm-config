@@ -9,10 +9,12 @@ local M = {}
 -- Get home directory in a cross-platform way
 local home = wezterm.home_dir
 
--- Define execution domains
-local wsl_domain = nil
+local codex_cmd = { 'codex' }
+local codex_domain = nil
+
 if platform.is_win then
-   wsl_domain = { DomainName = 'WSL:Ubuntu' }
+   -- Run exclusively in WSL on Windows
+   codex_domain = { DomainName = 'WSL:Ubuntu' }
 end
 
 -- Profile definitions for each AI CLI
@@ -22,9 +24,7 @@ M.profiles = {
       color_scheme = 'Claude',
       font = 'Hurmit Nerd Font',
       window_title = 'Claude',
-      -- Use 'claude' and rely on shell PATH, running in WSL domain on Windows
-      cli_command = { 'claude' },
-      domain = wsl_domain,
+      cli_command = { home .. '/.local/bin/claude' },
       env = { CLI_PROFILE = 'claude' },
       cursor_color = '#C15F3C',
    },
@@ -33,8 +33,7 @@ M.profiles = {
       color_scheme = 'Gemini',
       font = 'EnvyCodeR Nerd Font',
       window_title = 'Gemini',
-      cli_command = { 'gemini' },
-      domain = wsl_domain,
+      cli_command = { '/usr/local/bin/gemini' },
       env = { CLI_PROFILE = 'gemini' },
       cursor_color = '#4285F4',
    },
@@ -43,8 +42,7 @@ M.profiles = {
       color_scheme = 'Grok',
       font = 'CaskaydiaCove Nerd Font',
       window_title = 'Grok',
-      cli_command = { 'grok' },
-      domain = wsl_domain,
+      cli_command = { home .. '/.bun/bin/grok' },
       env = { CLI_PROFILE = 'grok' },
       cursor_color = '#FF007F',
    },
@@ -53,8 +51,8 @@ M.profiles = {
       color_scheme = 'Codex',
       font = 'SpaceMono Nerd Font',
       window_title = 'Codex',
-      cli_command = { 'codex' },
-      domain = wsl_domain,
+      cli_command = codex_cmd,  -- Assumes npm global install or in PATH
+      domain = codex_domain,
       env = { CLI_PROFILE = 'codex' },
       cursor_color = '#9B7CD5',
    },
