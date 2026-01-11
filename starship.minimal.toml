@@ -1,0 +1,36 @@
+# Starship Configuration - Nord Minimal
+# Subtle Nord colors, text-based, flat
+
+format = """
+$directory$git_branch$git_status$nodejs$rust$python$golang$cmd_duration
+$character"""
+
+[character]
+success_symbol = "[λ](bold #81a1c1)" # Nord Blue
+error_symbol = "[λ](bold #bf616a)"   # Nord Red
+
+[directory]
+style = "bold #88c0d0" # Nord Cyan
+format = "[$path]($style) "
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = " "
+style = "bold #81a1c1"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold #ebcb8b"
+format = "([$all_status$ahead_behind]($style) )"
+
+[nodejs]
+symbol = "󰎙 "
+style = "bold #a3be8c"
+format = "via [$symbol$version]($style) "
+
+[cmd_duration]
+min_time = 2_000
+style = "bold #4c566a"
+format = "($duration) "
