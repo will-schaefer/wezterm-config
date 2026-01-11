@@ -7,7 +7,7 @@
     - [ ] Sub-task: Draft `starship.minimal.toml` with subtle Nord colors and text-based separators.
 - [x] Task: Create "Bubble Pop" prototype c36962e
     - [ ] Sub-task: Draft `starship.bubble.toml` using rounded powerline glyphs and pill-shaped modules.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1' (Protocol in workflow.md) fba856e
     *   **Goal:** Present the 3 options to the user and get a final decision.
 
 ## Phase 2: Implementation & Refinement
