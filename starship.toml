@@ -6,8 +6,8 @@ $directory$git_branch$git_status$nodejs$rust$python$golang$cmd_duration
 $character"""
 
 [character]
-success_symbol = "[λ](bold #81a1c1)" # Nord Blue
-error_symbol = "[λ](bold #bf616a)"   # Nord Red
+success_symbol = "[✔](bold #a3be8c)" # Green check
+error_symbol = "[✖](bold #bf616a)"   # Red cross
 
 [directory]
 style = "bold #88c0d0" # Nord Cyan
@@ -20,7 +20,7 @@ read_only = " 󰌾"
 
 [git_branch]
 symbol = " " # GitHub Icon
-style = "bold #81a1c1"
+style = "bold #eceff4" # White
 format = "[$symbol $branch]($style) "
 
 [git_status]
