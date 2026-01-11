@@ -1,0 +1,36 @@
+# Starship Configuration - Neon Cyber
+# High-contrast, sharp angles, minimalist
+
+format = """
+$directory$git_branch$git_status$nodejs$rust$python$golang$cmd_duration
+$character"""
+
+[character]
+success_symbol = "[󰄾](bold #5AF78E)" # Electric Green
+error_symbol = "[󰄾](bold #FF5C57)"   # Electric Red
+
+[directory]
+style = "bold #9AEDFE" # Electric Cyan
+format = "[$path]($style) "
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = "󰊢 "
+style = "bold #FF6AC1" # Neon Pink
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold #F3F99D" # Electric Yellow
+format = "([$all_status$ahead_behind]($style) )"
+
+[nodejs]
+symbol = " "
+style = "bold #5AF78E"
+format = "via [$symbol$version]($style) "
+
+[cmd_duration]
+min_time = 2_000
+style = "bold #F3F99D"
+format = "took [$duration]($style) "
