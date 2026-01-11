@@ -16,7 +16,7 @@
     - [ ] Sub-task: Overwrite `starship.toml` with the content of the selected prototype.
 - [x] Task: Tune Directory Truncation f6d4948
 - [x] Task: Update WezTerm font size to 16 308965c
-- [~] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2' (Protocol in workflow.md) 4003b59
     *   **Goal:** User confirms the new prompt looks correct in their actual terminal.
 
 ## Phase 3: Cleanup
