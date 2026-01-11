@@ -19,13 +19,23 @@ fish_style_pwd_dir_length = 1
 read_only = " 󰌾"
 
 [git_branch]
-symbol = " "
+symbol = " " # GitHub Icon
 style = "bold #81a1c1"
-format = "on [$symbol$branch]($style) "
+format = "[$symbol $branch]($style) "
 
 [git_status]
 style = "bold #ebcb8b"
 format = "([$all_status$ahead_behind]($style) )"
+conflicted = "⚠️"
+ahead = "⬆️${count}"
+behind = "⬇️${count}"
+diverged = "🔃"
+untracked = "❓"
+stashed = "📦"
+modified = "📝"
+staged = "✅"
+renamed = "🚚"
+deleted = "🗑️"
 
 [nodejs]
 symbol = "󰎙 "
