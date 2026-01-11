@@ -45,3 +45,8 @@ This document serves as the central source of truth for my entire terminal and d
 
 - **Fish:** Primary interactive shell.
 - **Starship:** The prompt engine.
+
+## Knowledge Management
+*Tools for documentation, planning, and note-taking.*
+
+- **Obsidian:** Markdown-based knowledge base and note-taking app.

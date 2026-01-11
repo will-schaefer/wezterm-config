@@ -15,11 +15,13 @@ A personalized, collaborative terminal environment powered by WezTerm and Tmux, 
 - **Workflow Efficiency:** Maximize productivity through custom keybindings, seamless pane management, and deep Tmux integration.
 - **Guided Learning:** Maintain a "learning-friendly" setup with accessible cheat sheets and a structure that is easy to understand and extend.
 - **Informativeness:** A data-rich UI that provides critical system and project context at a glance.
+- **AI-First Workflow:** Seamless integration with modern AI development tools (Gemini, Claude, Copilot) to accelerate the creative and technical process.
 
 ## Key Features
 - **Gemini-Inspired ANSI Theme:** A custom ANSI color palette mimicking the vibrant, high-contrast aesthetics of the Gemini chat interface.
 - **Nordic/Aurora UI:** A polished visual identity using the Nordic color palette with Aurora accents for window decorations and background elements.
 - **Sleek Starship Prompt:** A modern, minimalist shell prompt with smart directory truncation and rich Git status indicators (including GitHub-specific context).
+- **Fish Shell Optimization:** Specialized configuration and themes for the Fish shell, balancing performance with user-friendly interactivity.
 - **Integrated Tmux Management:** Sophisticated session and pane management that works in harmony with WezTerm.
 - **Dynamic Status Bars:** Information-heavy status lines in both WezTerm and Neovim to show repo status, time, and system info.
 - **On-Demand Help:** Custom keybinding helpers and cheat sheets to facilitate the mastery of complex shortcuts.
