@@ -10,6 +10,6 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Collaborative Analysis & Selection' (Protocol in workflow.md) [d4fddd6]
 
 ## Phase 3: Implementation
-- [~] Task: Install the selected tool (if not Starship) and apply the chosen theme/configuration
-- [ ] Task: Update `conductor/tech-stack.md` and `conductor/personal-tech-stack.md` if the tool changes
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Implementation' (Protocol in workflow.md)
+- [x] Task: Install the selected tool (if not Starship) and apply the chosen theme/configuration [78546c3]
+- [x] Task: Update `conductor/tech-stack.md` and `conductor/personal-tech-stack.md` if the tool changes [78546c3]
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Implementation' (Protocol in workflow.md) [78546c3]
