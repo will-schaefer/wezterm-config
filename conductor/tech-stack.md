@@ -4,6 +4,7 @@
 - **WezTerm:** The modern, GPU-accelerated terminal emulator serving as the visual front-end.
 - **Tmux:** The terminal multiplexer for managing persistent sessions and pane layouts.
 - **Neovim:** The primary text editor/IDE, heavily customized for this environment.
+- **Starship:** The cross-shell prompt for a consistent and sleek shell experience.
 
 ## Scripting & Configuration Languages
 - **Lua:** The primary configuration language used for WezTerm and Neovim customization.

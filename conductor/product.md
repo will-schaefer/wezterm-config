@@ -19,6 +19,7 @@ A personalized, collaborative terminal environment powered by WezTerm and Tmux, 
 ## Key Features
 - **Gemini-Inspired ANSI Theme:** A custom ANSI color palette mimicking the vibrant, high-contrast aesthetics of the Gemini chat interface.
 - **Nordic/Aurora UI:** A polished visual identity using the Nordic color palette with Aurora accents for window decorations and background elements.
+- **Sleek Starship Prompt:** A modern, minimalist shell prompt with smart directory truncation and rich Git status indicators (including GitHub-specific context).
 - **Integrated Tmux Management:** Sophisticated session and pane management that works in harmony with WezTerm.
 - **Dynamic Status Bars:** Information-heavy status lines in both WezTerm and Neovim to show repo status, time, and system info.
 - **On-Demand Help:** Custom keybinding helpers and cheat sheets to facilitate the mastery of complex shortcuts.
