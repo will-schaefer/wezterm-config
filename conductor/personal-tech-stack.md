@@ -9,10 +9,12 @@ This document serves as the central source of truth for my entire terminal and d
 - **Tmux:** Terminal multiplexer for session management.
 - **Neovim:** Modal text editor and IDE.
 - **Starship:** Cross-shell prompt.
+- **Fish Shell:** User-friendly, interactive shell (Primary).
 
 ## CLI Utilities
 *Essential command-line tools for productivity and navigation.*
 
+- **gh:** GitHub CLI for repository management (fork: `gh repo codex`).
 - **LazyGit:** Simple terminal UI for git commands.
 - **ripgrep (rg):** Fast grep replacement (required for Telescope).
 - **fd:** Fast find replacement (required for Telescope).
@@ -21,9 +23,8 @@ This document serves as the central source of truth for my entire terminal and d
 *Programming languages and runtime environments.*
 
 - **Lua:** Primary configuration language for WezTerm and Neovim.
-- **Python:** Scripting and backend development (Implied by tooling).
-- **Node.js:** JavaScript runtime (Implied by tooling).
-- **Shell:** Bash/Zsh (Environment setup).
+- **Python:** Scripting and backend development.
+- **Node.js:** JavaScript runtime.
 
 ## Package Managers
 *Tools used to install and manage software.*
@@ -34,10 +35,12 @@ This document serves as the central source of truth for my entire terminal and d
 ## AI & Developer Tools
 *Assistants, version control, and productivity enhancers.*
 
+- **Claude Code CLI:** AI agentic coding assistant.
 - **Gemini CLI:** AI coding assistant.
-- **GitHub Copilot / Codeium:** (Under consideration for Neovim).
+- **just-every/code:** (Reference/Project context).
 
 ## Shell Environment
 *Shell configuration, frameworks, and prompts.*
 
-- **Bash:** Default shell (on Ubuntu).
+- **Fish:** Primary interactive shell.
+- **Starship:** The prompt engine.
