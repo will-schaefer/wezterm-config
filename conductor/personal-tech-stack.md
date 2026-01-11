@@ -37,6 +37,7 @@ This document serves as the central source of truth for my entire terminal and d
 
 - **Claude Code CLI:** AI agentic coding assistant.
 - **Gemini CLI:** AI coding assistant.
+- **GitHub Copilot CLI:** AI assistance directly in the terminal.
 - **just-every/code:** (Reference/Project context).
 
 ## Shell Environment
