@@ -15,6 +15,8 @@ format = "[$path]($style) "
 truncation_length = 3
 truncate_to_repo = true
 truncation_symbol = "…/"
+fish_style_pwd_dir_length = 1
+read_only = " 󰌾"
 
 [git_branch]
 symbol = " "
