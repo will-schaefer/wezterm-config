@@ -8,7 +8,7 @@ This document serves as the central source of truth for my entire terminal and d
 - **WezTerm:** GPU-accelerated terminal emulator.
 - **Tmux:** Terminal multiplexer for session management.
 - **Neovim:** Modal text editor and IDE.
-- **Starship:** Cross-shell prompt.
+- **Tide:** Fish-native prompt.
 - **Fish Shell:** User-friendly, interactive shell (Primary).
 
 ## CLI Utilities
@@ -44,7 +44,7 @@ This document serves as the central source of truth for my entire terminal and d
 *Shell configuration, frameworks, and prompts.*
 
 - **Fish:** Primary interactive shell.
-- **Starship:** The prompt engine.
+- **Tide:** The prompt engine (Fish-native).
 
 ## Knowledge Management
 *Tools for documentation, planning, and note-taking.*
