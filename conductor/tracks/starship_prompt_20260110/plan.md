@@ -3,7 +3,7 @@
 ## Phase 1: Prototype Generation
 - [x] Task: Create "Neon Cyber" prototype 487d35f
     - [ ] Sub-task: Draft `starship.neon.toml` with high-contrast colors and minimal symbols.
-- [ ] Task: Create "Nord Minimal" prototype
+- [x] Task: Create "Nord Minimal" prototype e35284d
     - [ ] Sub-task: Draft `starship.minimal.toml` with subtle Nord colors and text-based separators.
 - [ ] Task: Create "Bubble Pop" prototype
     - [ ] Sub-task: Draft `starship.bubble.toml` using rounded powerline glyphs and pill-shaped modules.
