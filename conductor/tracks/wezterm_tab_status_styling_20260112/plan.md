@@ -6,8 +6,8 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Tech Stack & Baseline Verification' (Protocol in workflow.md)
 
 ## Phase 2: Right-Status (Clock) Refinement
-- [ ] Task: Write Tests: Verify `right-status.lua` can return formatted text with specific colors and fonts
-- [ ] Task: Implement: Update `events/right-status.lua` to use CodeNewRoman Nerd Font in Bright White
+- [x] Task: Write Tests: Verify `right-status.lua` can return formatted text with specific colors and fonts [3b877ae]
+- [x] Task: Implement: Update `events/right-status.lua` to use CodeNewRoman Nerd Font in Bright White [11c7eef]
 - [ ] Task: Implement: Ensure the background of the right-status area matches the window background
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Right-Status (Clock) Refinement' (Protocol in workflow.md)
 
