@@ -63,7 +63,7 @@ local colors = {
 
 local cells = Cells:new()
 
-local font = wezterm.font({ family = 'CodeNewRoman Nerd Font Mono', weight = 'Bold' })
+local font = wezterm.font({ family = 'CodeNewRoman Code Font', weight = 'Bold' })
 
 cells
    :add_segment('date_icon', ICON_DATE .. '  ', colors.date, attr(attr.intensity('Bold')), font)

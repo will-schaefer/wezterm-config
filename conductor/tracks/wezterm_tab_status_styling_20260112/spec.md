@@ -12,7 +12,7 @@ The goal of this track is to refine the visual appearance of the WezTerm tab bar
 - **Style:** Inverted Nordic.
 - **Background:** A bright color from the Nordic palette (e.g., `81A1C1` Blue or `88C0D0` Cyan).
 - **Text Color:** Matches the window's main background color for high contrast.
-- **Font:** CodeNewRoman Nerd Font.
+- **Font:** CodeNewRoman Code Font.
 
 ### 2.3 Inactive Tab Styling
 - **Background:** Transparent (matches the window/tab-bar background).
@@ -22,7 +22,7 @@ The goal of this track is to refine the visual appearance of the WezTerm tab bar
 ### 2.4 Right Status (Battery)
 - **Background:** Matches the window/tab-bar background.
 - **Text Color:** Bright White.
-- **Font:** CodeNewRoman Nerd Font.
+- **Font:** CodeNewRoman Code Font.
 - **Content:** Display battery information ONLY (remove clock/date).
 
 ## 3. Non-Functional Requirements

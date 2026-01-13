@@ -73,13 +73,13 @@ for _, item in ipairs(last_right_status) do
   if item.Foreground and item.Foreground.Color == '#FFFFFF' then
     found_white = true
   end
-  if item.Font and item.Font.family == 'CodeNewRoman Nerd Font Mono' then
+  if item.Font and item.Font.family == 'CodeNewRoman Code Font' then
     found_font = true
   end
 end
 
 assert_eq(found_white, true, "Should use Bright White (#FFFFFF) for status text")
-assert_eq(found_font, true, "Should use CodeNewRoman Nerd Font Mono for status text")
+assert_eq(found_font, true, "Should use CodeNewRoman Code Font for status text")
 
 -- Verify date and separator are NOT present
 local found_date = false
