@@ -8,7 +8,7 @@
 ## Phase 2: Right-Status (Clock) Refinement
 - [x] Task: Write Tests: Verify `right-status.lua` can return formatted text with specific colors and fonts [3b877ae]
 - [x] Task: Implement: Update `events/right-status.lua` to use CodeNewRoman Nerd Font in Bright White [11c7eef]
-- [ ] Task: Implement: Ensure the background of the right-status area matches the window background
+- [x] Task: Implement: Ensure the background of the right-status area matches the window background [11c7eef]
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Right-Status (Clock) Refinement' (Protocol in workflow.md)
 
 ## Phase 3: Tab Bar Background & Inactive Tabs
