@@ -61,7 +61,7 @@ return {
    default_workspace = 'main',
    
    window_frame = {
-      active_titlebar_bg = '#242933',
+      active_titlebar_bg = 'rgba(0, 0, 0, 0.0)',
    },
 
    inactive_pane_hsb = {
