@@ -18,11 +18,11 @@
 - [x] Task: Implement: Set inactive tab backgrounds to transparent/match the window [2259e34]
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Tab Bar Background & Inactive Tabs' (Protocol in workflow.md)
 
-## Phase 4: Active Tab Styling (Inverted Nordic)
-- [ ] Task: Write Tests: Verify active tab styling logic
-- [ ] Task: Implement: Update `events/tab-title.lua` to apply the inverted Nordic style to the active tab (Solid Nordic BG, Dark Text)
-- [ ] Task: Implement: Ensure the active tab uses CodeNewRoman Nerd Font
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Active Tab Styling (Inverted Nordic)' (Protocol in workflow.md)
+## Phase 4: Active Tab Styling (Inverted Nordic) [checkpoint: 1586153]
+- [x] Task: Write Tests: Verify active tab styling logic [59a073b]
+- [x] Task: Implement: Update `events/tab-title.lua` to apply the inverted Nordic style to the active tab (Solid Nordic BG, Dark Text) [1586153]
+- [x] Task: Implement: Ensure the active tab uses CodeNewRoman Nerd Font [1586153]
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Active Tab Styling (Inverted Nordic)' (Protocol in workflow.md)
 
 ## Phase 5: Final Harmony & Polish
 - [ ] Task: Implement: Audit and remove any remaining borders or separators in the tab bar
