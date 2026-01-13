@@ -24,7 +24,7 @@
 - [x] Task: Implement: Ensure the active tab uses CodeNewRoman Nerd Font [1586153]
 - [x] Task: Conductor - User Manual Verification 'Phase 4: Active Tab Styling (Inverted Nordic)' (Protocol in workflow.md)
 
-## Phase 5: Final Harmony & Polish
-- [ ] Task: Implement: Audit and remove any remaining borders or separators in the tab bar
-- [ ] Task: Verify: Ensure visual consistency across all Nordic colors and font weights
-- [ ] Task: Conductor - User Manual Verification 'Phase 5: Final Harmony & Polish' (Protocol in workflow.md)
+## Phase 5: Final Harmony & Polish [checkpoint: 4fe5893]
+- [x] Task: Implement: Audit and remove any remaining borders or separators in the tab bar [4fe5893]
+- [x] Task: Verify: Ensure visual consistency across all Nordic colors and font weights [4fe5893]
+- [x] Task: Conductor - User Manual Verification 'Phase 5: Final Harmony & Polish' (Protocol in workflow.md)
