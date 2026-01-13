@@ -267,14 +267,15 @@ end
 
 function Tab:create_cells()
    local attr = self.cells.attr
+   local font = wezterm.font({ family = 'CodeNewRoman Code Font', weight = 'Bold' })
    self.cells
-      :add_segment('scircle_left', GLYPH_SCIRCLE_LEFT)
-      :add_segment('admin', ' ' .. GLYPH_ADMIN)
-      :add_segment('wsl', ' ' .. GLYPH_LINUX)
-      :add_segment('title', ' ', nil, attr(attr.intensity('Bold')))
-      :add_segment('unseen_output', ' ' .. GLYPH_CIRCLE)
-      :add_segment('padding', ' ')
-      :add_segment('scircle_right', GLYPH_SCIRCLE_RIGHT)
+      :add_segment('scircle_left', GLYPH_SCIRCLE_LEFT, nil, nil, font)
+      :add_segment('admin', ' ' .. GLYPH_ADMIN, nil, nil, font)
+      :add_segment('wsl', ' ' .. GLYPH_LINUX, nil, nil, font)
+      :add_segment('title', ' ', nil, attr(attr.intensity('Bold')), font)
+      :add_segment('unseen_output', ' ' .. GLYPH_CIRCLE, nil, nil, font)
+      :add_segment('padding', ' ', nil, nil, font)
+      :add_segment('scircle_right', GLYPH_SCIRCLE_RIGHT, nil, nil, font)
 end
 
 ---@param title string
@@ -292,26 +293,29 @@ function Tab:update_cells(event_opts, is_active, hover, tab_index)
    local specific_color = rainbow[(tab_index % #rainbow) + 1]
 
    local fg_color = nord.text
-   local bg_color = nord.surface0
-   local scircle_bg = nord.mantle
-   local scircle_fg = nord.surface0
+   local bg_color = 'rgba(0, 0, 0, 0.0)'
+   local scircle_bg = 'rgba(0, 0, 0, 0.0)'
+   local scircle_fg = 'rgba(0, 0, 0, 0.0)'
 
    if is_active then
       bg_color = specific_color
       fg_color = nord.base
       scircle_fg = specific_color
+      -- Keep scircle_bg transparent to match the seamless bar
+      scircle_bg = 'rgba(0, 0, 0, 0.0)'
    elseif hover then
-      bg_color = nord.surface1
-      fg_color = specific_color -- Hint at color on hover
-      scircle_fg = nord.surface1
-   else
-      -- Inactive: Dark bg, but text is colored to match the tab's identity
-      bg_color = nord.surface0
+      bg_color = 'rgba(255, 255, 255, 0.1)' -- Subtle hover effect
       fg_color = specific_color
-      scircle_fg = nord.surface0
+      scircle_fg = 'rgba(255, 255, 255, 0.1)'
+   else
+      -- Inactive: Transparent bg, colored text
+      bg_color = 'rgba(0, 0, 0, 0.0)'
+      fg_color = specific_color
+      scircle_fg = 'rgba(0, 0, 0, 0.0)'
    end
 
    self.cells:update_segment_text('title', ' ' .. self.title)
+
 
    if event_opts.unseen_icon == 'numbered_box' and self.unseen_output then
       self.cells:update_segment_text(

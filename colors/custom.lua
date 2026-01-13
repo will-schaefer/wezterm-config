@@ -58,7 +58,7 @@ local colorscheme = {
    },
 
    tab_bar = {
-      background = '#242933', -- Nord Mantle
+      background = 'rgba(0, 0, 0, 0.0)', -- Seamless look
       active_tab = {
          bg_color = '#2E3440', -- Nord Base
          fg_color = palette.foreground,
