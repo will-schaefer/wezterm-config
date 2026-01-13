@@ -6,11 +6,11 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Audit & Discovery' (Protocol in workflow.md) [00225eb]
 
 ## Phase 2: Iterative Git & OS Customization
-- [~] Task: Present Git icon/color options and apply user selections iteratively
-- [ ] Task: Present OS icon/color options and apply user selections iteratively
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Iterative Git & OS Customization' (Protocol in workflow.md)
+- [x] Task: Present Git icon/color options and apply user selections iteratively
+- [x] Task: Present OS icon/color options and apply user selections iteratively
+- [~] Task: Conductor - User Manual Verification 'Phase 2: Iterative Git & OS Customization' (Protocol in workflow.md)
 
 ## Phase 3: Expansion & Finalization
-- [ ] Task: Enable any selected "extra" context items (e.g., GitHub PR status or detailed upstream)
-- [ ] Task: Verify the overall visual harmony and performance of the left prompt
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Expansion & Finalization' (Protocol in workflow.md)
+- [x] Task: Enable any selected "extra" context items (e.g., GitHub PR status or detailed upstream)
+- [x] Task: Verify the overall visual harmony and performance of the left prompt
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Expansion & Finalization' (Protocol in workflow.md)
