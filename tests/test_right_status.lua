@@ -81,4 +81,22 @@ end
 assert_eq(found_white, true, "Should use Bright White (#FFFFFF) for status text")
 assert_eq(found_font, true, "Should use CodeNewRoman Nerd Font Mono for status text")
 
+-- Verify date and separator are NOT present
+local found_date = false
+local found_separator = false
+
+for _, item in ipairs(last_right_status) do
+  if item.Text then
+    if item.Text:match("icon_fa_calendar") or item.Text:match("Mon 12:34:56") then
+      found_date = true
+    end
+    if item.Text:match("icon_oct_dash") then
+      found_separator = true
+    end
+  end
+end
+
+assert_eq(found_date, false, "Date should be removed from right status")
+assert_eq(found_separator, false, "Separator should be removed from right status")
+
 print("Right-Status Tests PASSED.")

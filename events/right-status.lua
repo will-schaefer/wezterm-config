@@ -112,7 +112,7 @@ M.setup = function(opts)
 
       window:set_right_status(
          wezterm.format(
-            cells:render({ 'date_icon', 'date_text', 'separator', 'battery_icon', 'battery_text' })
+            cells:render({ 'battery_icon', 'battery_text' })
          )
       )
    end)
