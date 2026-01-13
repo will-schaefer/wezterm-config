@@ -5,11 +5,11 @@
 - [x] Task: Research WezTerm `config.colors.tab_bar` and `wezterm.on('format-tab-title', ...)` capabilities [7bc6aaa]
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Tech Stack & Baseline Verification' (Protocol in workflow.md)
 
-## Phase 2: Right-Status (Battery Only) Refinement
+## Phase 2: Right-Status (Battery Only) Refinement [checkpoint: 43ca2f1]
 - [x] Task: Write Tests: Verify `right-status.lua` can return formatted text with specific colors and fonts [3b877ae]
 - [x] Task: Implement: Update `events/right-status.lua` to use CodeNewRoman Nerd Font in Bright White [11c7eef]
 - [x] Task: Implement: Remove clock/date and ensure battery background matches the window background [d9482ef]
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Right-Status (Battery Only) Refinement' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Right-Status (Battery Only) Refinement' (Protocol in workflow.md)
 
 ## Phase 3: Tab Bar Background & Inactive Tabs
 - [ ] Task: Write Tests: Verify tab bar color configuration logic
