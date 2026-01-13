@@ -12,11 +12,15 @@
 ---@class FormatItem.Attribute.Underline
 ---@field Underline 'None'|'Single'|'Double'|'Curly'
 
+---@class FormatItem.Font
+---@field Font any
+
 ---@class FormatItem.Attribute
 ---@field Attribute FormatItem.Attribute.Intensity|FormatItem.Attribute.Italic|FormatItem.Attribute.Underline
 
 ---@class FormatItem.Foreground
 ---@field Background {Color: string}
+
 
 ---@class FormatItem.Background
 ---@field Foreground {Color: string}
@@ -51,8 +55,10 @@ end
 ---@field items FormatItem[]
 ---@field has_bg boolean
 ---@field has_fg boolean
+---@field has_font boolean
 
 ---Format item generator for `wezterm.format` (ref: <https://wezfurlong.org/wezterm/config/lua/wezterm/format.html>)
+
 ---@class FormatCells
 ---@field segments table<string|number, FormatCells.Segment>
 local Cells = {}
@@ -82,12 +88,16 @@ end
 ---@param text string the text to push
 ---@param color? Cells.SegmentColors the bg and fg colors for text
 ---@param attributes? FormatItem.Attribute[] use bold text
-function Cells:add_segment(segment_id, text, color, attributes)
+---@param font? any the font for text
+function Cells:add_segment(segment_id, text, color, attributes, font)
    color = color or {}
 
    ---@type FormatItem[]
    local items = {}
 
+   if font then
+      table.insert(items, { Font = font })
+   end
    if color.bg then
       assert(color.bg ~= 'UNSET', 'Cannot use UNSET when adding new segment')
       table.insert(items, { Background = { Color = color.bg } })
@@ -109,6 +119,7 @@ function Cells:add_segment(segment_id, text, color, attributes)
       items = items,
       has_bg = color.bg ~= nil,
       has_fg = color.fg ~= nil,
+      has_font = font ~= nil,
    }
 
    return self
@@ -133,6 +144,27 @@ function Cells:update_segment_text(segment_id, text)
    return self
 end
 
+---Update the font of a segment
+---@param segment_id string|number the segment id
+---@param font any the font for text
+function Cells:update_segment_font(segment_id, font)
+   self:_check_segment(segment_id)
+
+   local has_font = self.segments[segment_id].has_font
+
+   if has_font and font == 'UNSET' then
+      table.remove(self.segments[segment_id].items, 1)
+      self.segments[segment_id].has_font = false
+   elseif has_font then
+      self.segments[segment_id].items[1] = { Font = font }
+   else
+      table.insert(self.segments[segment_id].items, 1, { Font = font })
+      self.segments[segment_id].has_font = true
+   end
+
+   return self
+end
+
 ---Update the colors of a segment
 ---@param segment_id string|number the segment id
 ---@param color Cells.SegmentColors the bg and fg colors for text
@@ -141,27 +173,29 @@ function Cells:update_segment_colors(segment_id, color)
 
    self:_check_segment(segment_id)
 
+   local has_font = self.segments[segment_id].has_font
    local has_bg = self.segments[segment_id].has_bg
    local has_fg = self.segments[segment_id].has_fg
 
    if color.bg then
+      local bg_idx = has_font and 2 or 1
       if has_bg and color.bg == 'UNSET' then
-         table.remove(self.segments[segment_id].items, 1)
+         table.remove(self.segments[segment_id].items, bg_idx)
          has_bg = false
          goto bg_end
       end
 
       if has_bg then
-         self.segments[segment_id].items[1] = { Background = { Color = color.bg } }
+         self.segments[segment_id].items[bg_idx] = { Background = { Color = color.bg } }
       else
-         table.insert(self.segments[segment_id].items, 1, { Background = { Color = color.bg } })
+         table.insert(self.segments[segment_id].items, bg_idx, { Background = { Color = color.bg } })
          has_bg = true
       end
    end
    ::bg_end::
 
    if color.fg then
-      local fg_idx = has_bg and 2 or 1
+      local fg_idx = (has_font and 1 or 0) + (has_bg and 1 or 0) + 1
       if has_fg and color.fg == 'UNSET' then
          table.remove(self.segments[segment_id].items, fg_idx)
          has_fg = false
@@ -185,6 +219,7 @@ function Cells:update_segment_colors(segment_id, color)
    self.segments[segment_id].has_fg = has_fg
    return self
 end
+
 
 ---Convert specific segments into a format that `wezterm.format` can use
 ---Segments will rendered in the order of the `ids` table

@@ -56,19 +56,22 @@ local charging_icons = {
 ---@type table<string, Cells.SegmentColors>
 -- stylua: ignore
 local colors = {
-   date      = { fg = '#9AEDFE', bg = 'rgba(0, 0, 0, 0.4)' },
-   battery   = { fg = '#5AF78E', bg = 'rgba(0, 0, 0, 0.4)' },
-   separator = { fg = '#FF6AC1', bg = 'rgba(0, 0, 0, 0.4)' }
+   date      = { fg = '#FFFFFF', bg = 'rgba(0, 0, 0, 0.0)' },
+   battery   = { fg = '#FFFFFF', bg = 'rgba(0, 0, 0, 0.0)' },
+   separator = { fg = '#FFFFFF', bg = 'rgba(0, 0, 0, 0.0)' }
 }
 
 local cells = Cells:new()
 
+local font = wezterm.font({ family = 'CodeNewRoman Nerd Font Mono', weight = 'Bold' })
+
 cells
-   :add_segment('date_icon', ICON_DATE .. '  ', colors.date, attr(attr.intensity('Bold')))
-   :add_segment('date_text', '', colors.date, attr(attr.intensity('Bold')))
-   :add_segment('separator', ' ' .. ICON_SEPARATOR .. '  ', colors.separator)
-   :add_segment('battery_icon', '', colors.battery)
-   :add_segment('battery_text', '', colors.battery, attr(attr.intensity('Bold')))
+   :add_segment('date_icon', ICON_DATE .. '  ', colors.date, attr(attr.intensity('Bold')), font)
+   :add_segment('date_text', '', colors.date, attr(attr.intensity('Bold')), font)
+   :add_segment('separator', ' ' .. ICON_SEPARATOR .. '  ', colors.separator, nil, font)
+   :add_segment('battery_icon', '', colors.battery, nil, font)
+   :add_segment('battery_text', '', colors.battery, attr(attr.intensity('Bold')), font)
+
 
 ---@return string, string
 local function battery_info()
