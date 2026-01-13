@@ -1,9 +1,9 @@
 # Plan: WezTerm Tab Bar & Status Styling
 
-## Phase 1: Tech Stack & Baseline Verification
+## Phase 1: Tech Stack & Baseline Verification [checkpoint: 8eb07f1]
 - [x] Task: Audit current `config/appearance.lua` and `events/right-status.lua` for existing tab/status styling logic [7bc6aaa]
 - [x] Task: Research WezTerm `config.colors.tab_bar` and `wezterm.on('format-tab-title', ...)` capabilities [7bc6aaa]
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Tech Stack & Baseline Verification' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Tech Stack & Baseline Verification' (Protocol in workflow.md)
 
 ## Phase 2: Right-Status (Clock) Refinement
 - [ ] Task: Write Tests: Verify `right-status.lua` can return formatted text with specific colors and fonts
