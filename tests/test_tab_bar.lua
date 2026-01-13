@@ -96,4 +96,30 @@ for _, item in ipairs(results[0]) do
 end
 assert_eq(found_font, true, "Should use CodeNewRoman Code Font")
 
+-- Verify active tab styling (Inverted)
+local active_tab = create_mock_tab(0, true)
+local active_result = format_tab_title_callback(active_tab, {}, {}, {}, false, 20)
+
+local active_bg, active_fg
+for _, item in ipairs(active_result) do
+  if item.Text and item.Text:match("bash") then
+    -- Find the background and foreground just before the text
+  end
+end
+-- Simplified: find the colors of the title segment
+for i, item in ipairs(active_result) do
+  if item.Text and item.Text:match("bash") then
+    -- Background is usually a few items before
+    for j = i, 1, -1 do
+      if active_result[j].Background then active_bg = active_result[j].Background.Color end
+      if active_result[j].Foreground then active_fg = active_result[j].Foreground.Color end
+      if active_bg and active_fg then break end
+    end
+  end
+end
+
+-- Active should have a solid Nordic color background and dark text (#2e3440)
+assert_eq(active_fg, '#2e3440', "Active tab should have dark text (Nord Base)")
+assert_eq(active_bg ~= 'rgba(0, 0, 0, 0.0)', true, "Active tab should have a solid background color")
+
 print("Tab Bar Tests PASSED.")
