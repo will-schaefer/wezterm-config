@@ -11,12 +11,12 @@
 - [x] Task: Implement: Remove clock/date and ensure battery background matches the window background [d9482ef]
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Right-Status (Battery Only) Refinement' (Protocol in workflow.md)
 
-## Phase 3: Tab Bar Background & Inactive Tabs
-- [ ] Task: Write Tests: Verify tab bar color configuration logic
-- [ ] Task: Implement: Configure `config.colors.tab_bar.background` to match the window background in `config/appearance.lua`
-- [ ] Task: Implement: Implement a rotating Nordic color palette for inactive tab text/icons in `events/tab-title.lua`
-- [ ] Task: Implement: Set inactive tab backgrounds to transparent/match the window
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Tab Bar Background & Inactive Tabs' (Protocol in workflow.md)
+## Phase 3: Tab Bar Background & Inactive Tabs [checkpoint: 2259e34]
+- [x] Task: Write Tests: Verify tab bar color configuration logic [05f48b9]
+- [x] Task: Implement: Configure `config.colors.tab_bar.background` to match the window background in `config/appearance.lua` [2259e34]
+- [x] Task: Implement: Implement a rotating Nordic color palette for inactive tab text/icons in `events/tab-title.lua` [2259e34]
+- [x] Task: Implement: Set inactive tab backgrounds to transparent/match the window [2259e34]
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Tab Bar Background & Inactive Tabs' (Protocol in workflow.md)
 
 ## Phase 4: Active Tab Styling (Inverted Nordic)
 - [ ] Task: Write Tests: Verify active tab styling logic
