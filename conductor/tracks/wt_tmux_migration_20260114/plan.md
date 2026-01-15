@@ -8,7 +8,7 @@ Configure the shell environment to match the desired functionality and aesthetic
 - [x] **Task: Install and Initialize Zsh** a506dfe
     - [ ] Install Zsh on Ubuntu (WSL2) if not already present.
     - [ ] Create a basic `.zshrc` file that sets Zsh as the default shell for the user.
-- [ ] **Task: Configure Starship with Tide Aesthetic**
+- [x] **Task: Configure Starship with Tide Aesthetic** de614a9
     - [ ] Update `starship.toml` to include the Arch Linux icon (``) with Nordic Blue background.
     - [ ] Configure Git status indicators and colors in `starship.toml` to match the "Tide" Nordic palette.
     - [ ] Adjust the layout to move Git status to the right (if possible in Starship) or optimize the left-hand prompt.
