@@ -1,16 +1,25 @@
-# Starship Configuration - Nord Minimal
-# Subtle Nord colors, text-based, flat
+# Starship Configuration - Nord Migration
+# Migrating Tide/Fish aesthetic to Starship
 
 format = """
-$directory$git_branch$git_status$nodejs$rust$python$golang$cmd_duration
+$os$directory$git_branch$git_status$nodejs$rust$python$golang$cmd_duration
 $character"""
 
+[os]
+disabled = false
+format = "[$symbol]($style) "
+style = "bold #81A1C1" # Nordic Blue
+
+[os.symbols]
+Arch = ""
+Ubuntu = ""
+
 [character]
-success_symbol = "[✔](bold #a3be8c)" # Green check
-error_symbol = "[✖](bold #bf616a)"   # Red cross
+success_symbol = "[✔](bold #a3be8c)" # Nordic Green
+error_symbol = "[✖](bold #bf616a)"   # Nordic Red
 
 [directory]
-style = "bold #88c0d0" # Nord Cyan
+style = "bold #88C0D0" # Nord Cyan (Keeping for now for better visibility than 4C566A)
 format = "[$path]($style) "
 truncation_length = 3
 truncate_to_repo = true
@@ -20,20 +29,20 @@ read_only = " 󰌾"
 
 [git_branch]
 symbol = " " # GitHub Icon
-style = "bold #eceff4" # White
+style = "bold #eceff4" # Nord White
 format = "[$symbol $branch]($style) "
 
 [git_status]
-style = "bold #ebcb8b"
+style = "bold #ebcb8b" # Nordic Yellow/Dirty
 format = "([$all_status$ahead_behind]($style) )"
-conflicted = "⚠️"
+conflicted = "[⚠️](bold #BF616A)"
 ahead = "⬆️${count}"
 behind = "⬇️${count}"
 diverged = "🔃"
 untracked = "❓"
 stashed = "📦"
-modified = "📝"
-staged = "✅"
+modified = "[📝](bold #EBCB8B)"
+staged = "[✅](bold #A3BE8C)"
 renamed = "🚚"
 deleted = "🗑️"
 

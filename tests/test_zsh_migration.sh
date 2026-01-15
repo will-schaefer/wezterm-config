@@ -19,4 +19,20 @@ else
     echo "PASS: .zshrc exists"
 fi
 
+# Test 3: Starship configuration (Arch icon)
+if ! grep -q "" starship.toml; then
+    echo "FAIL: starship.toml missing Arch icon ()"
+    fail=1
+else
+    echo "PASS: starship.toml contains Arch icon"
+fi
+
+# Test 4: Starship configuration (Nordic Blue #81A1C1)
+if ! grep -i -q "81A1C1" starship.toml; then
+    echo "FAIL: starship.toml missing Nordic Blue color (#81A1C1)"
+    fail=1
+else
+    echo "PASS: starship.toml contains Nordic Blue color"
+fi
+
 exit $fail
