@@ -12,7 +12,7 @@ Configure the shell environment to match the desired functionality and aesthetic
     - [ ] Update `starship.toml` to include the Arch Linux icon (``) with Nordic Blue background.
     - [ ] Configure Git status indicators and colors in `starship.toml` to match the "Tide" Nordic palette.
     - [ ] Adjust the layout to move Git status to the right (if possible in Starship) or optimize the left-hand prompt.
-- [ ] **Task: Implement Zsh Plugins (Fish-like Experience)**
+- [x] **Task: Implement Zsh Plugins (Fish-like Experience)** cfad170
     - [ ] Install `zsh-autosuggestions`.
     - [ ] Install `zsh-syntax-highlighting`.
     - [ ] Install/Configure `zsh-completions` for improved tab completion.
