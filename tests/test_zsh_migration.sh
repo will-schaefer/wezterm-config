@@ -35,4 +35,14 @@ else
     echo "PASS: starship.toml contains Nordic Blue color"
 fi
 
+# Test 5: Zsh plugins sourcing
+for plugin in "autosuggestions" "syntax-highlighting" "completions"; do
+    if ! grep -q "$plugin" .zshrc; then
+        echo "FAIL: .zshrc missing $plugin sourcing"
+        fail=1
+    else
+        echo "PASS: .zshrc contains $plugin sourcing"
+    fi
+done
+
 exit $fail

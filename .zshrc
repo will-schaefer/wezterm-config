@@ -10,10 +10,15 @@ setopt appendhistory sharehistory
 bindkey -e
 
 # Load completions
+fpath=(~/.zsh/zsh-completions/src $fpath)
 autoload -Uz compinit
 compinit
 
-# Starship initialization (will be refined in next task)
+# Source Plugins
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Starship initialization
 if command -v starship &> /dev/null; then
     eval "$(starship init zsh)"
 fi
