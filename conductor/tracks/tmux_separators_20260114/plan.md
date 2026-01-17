@@ -17,8 +17,8 @@ This plan implements clearly visible pane separators for inactive panes and a hi
 - [x] Task: Update Tmux configuration with `pane-border-style` using Subtle Grey (`#4C566A`)
 - [x] Task: Update Tmux configuration with `pane-active-border-style` using Snow White (`#E5E9F0`)
 - [x] Task: Implement to pass tests - Reload Tmux configuration and verify the check script passes
-- [x] Task: Commit Border Styling and Mark as Complete `[x]`
-- [ ] Task: Conductor - User Manual Verification 'Implementation of Border Styling' (Protocol in workflow.md)
+- [x] Task: Commit Border Styling and Mark as Complete `[x]` b4fa8a8
+- [x] Task: Conductor - User Manual Verification 'Implementation of Border Styling' (Protocol in workflow.md)
 
 ## Phase 3: Final Polish and Integration Check
 
