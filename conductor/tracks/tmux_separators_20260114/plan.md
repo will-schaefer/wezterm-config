@@ -25,5 +25,5 @@ This plan implements clearly visible pane separators for inactive panes and a hi
 - [x] Task: Select Task - Mark 'Final Polish' as In-Progress `[~]`
 - [x] Task: Verify border visibility across different terminal backgrounds (transparency check)
 - [x] Task: Ensure settings are consistent across session reloads/reattaches
-- [x] Task: Commit Final Polish and Mark as Complete `[x]`
+- [x] Task: Commit Final Polish and Mark as Complete `[x]` d8717b3
 - [x] Task: Conductor - User Manual Verification 'Final Polish and Integration' (Protocol in workflow.md)
