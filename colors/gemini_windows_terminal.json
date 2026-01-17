@@ -1,0 +1,23 @@
+{
+    "name": "Gemini",
+    "black": "#161B22",
+    "red": "#EA4335",
+    "green": "#34A853",
+    "yellow": "#FBBC04",
+    "blue": "#4285F4",
+    "purple": "#A142F4",
+    "cyan": "#24C1E0",
+    "white": "#C9D1D9",
+    "brightBlack": "#30363D",
+    "brightRed": "#F28B82",
+    "brightGreen": "#81C995",
+    "brightYellow": "#FDD663",
+    "brightBlue": "#8AB4F8",
+    "brightPurple": "#C58AF9",
+    "brightCyan": "#78D9EC",
+    "brightWhite": "#E8EAED",
+    "background": "#0D1117",
+    "foreground": "#E8EAED",
+    "selectionBackground": "#1F3354",
+    "cursorColor": "#4285F4"
+}
