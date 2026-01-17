@@ -4,6 +4,11 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
+## [x] Track: Auto-launch Tmux on Shell Start
+*Link: [./conductor/tracks/auto_launch_tmux_20260116/](./conductor/tracks/auto_launch_tmux_20260116/)*
+
+---
+
 ## [x] Track: Customize Tide Prompt Icons and Colors
 *Link: [./conductor/tracks/tide_customization_20260111/](./conductor/tracks/tide_customization_20260111/)*
 
