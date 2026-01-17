@@ -57,6 +57,19 @@ local keys = {
    -- copy/paste --
    { key = 'c',          mods = 'CTRL|SHIFT',  action = act.CopyTo('Clipboard') },
    { key = 'v',          mods = 'CTRL|SHIFT',  action = act.PasteFrom('Clipboard') },
+   { key = 'v',          mods = 'CTRL',        action = act.PasteFrom('Clipboard') },
+   {
+      key = 'c',
+      mods = 'CTRL',
+      action = wezterm.action_callback(function(window, pane)
+         local selection = window:get_selection_text_for_pane(pane)
+         if selection ~= '' then
+            window:perform_action(act.CopyTo('Clipboard'), pane)
+         else
+            window:perform_action(act.SendKey({ key = 'c', mods = 'CTRL' }), pane)
+         end
+      end),
+   },
 
    -- tabs --
    -- tabs: spawn+close
@@ -115,6 +128,39 @@ local keys = {
          window:maximize()
       end)
    },
+
+   -- panes --
+   -- panes: split panes
+   {
+      key = [[|]],
+      mods = 'LEADER',
+      action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' }),
+   },
+   {
+      key = [[-]],
+      mods = 'LEADER',
+      action = act.SplitVertical({ domain = 'CurrentPaneDomain' }),
+   },
+
+   -- panes: zoom+close pane
+   { key = 'z',          mods = 'LEADER',      action = act.TogglePaneZoomState },
+   { key = 'w',          mods = 'LEADER',      action = act.CloseCurrentPane({ confirm = false }) },
+   { key = 'x',          mods = 'LEADER',      action = act.CloseCurrentPane({ confirm = false }) },
+
+   -- panes: navigation
+   { key = 'h',          mods = 'LEADER',      action = act.ActivatePaneDirection('Left') },
+   { key = 'j',          mods = 'LEADER',      action = act.ActivatePaneDirection('Down') },
+   { key = 'k',          mods = 'LEADER',      action = act.ActivatePaneDirection('Up') },
+   { key = 'l',          mods = 'LEADER',      action = act.ActivatePaneDirection('Right') },
+
+   -- panes: resize
+   { key = 'H',          mods = 'LEADER',      action = act.AdjustPaneSize({ 'Left', 5 }) },
+   { key = 'J',          mods = 'LEADER',      action = act.AdjustPaneSize({ 'Down', 5 }) },
+   { key = 'K',          mods = 'LEADER',      action = act.AdjustPaneSize({ 'Up', 5 }) },
+   { key = 'L',          mods = 'LEADER',      action = act.AdjustPaneSize({ 'Right', 5 }) },
+
+   -- panes: equalize
+   { key = '0',          mods = 'LEADER',      action = act.BalancePanes },
 
    -- background controls --
    {

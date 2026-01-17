@@ -20,5 +20,12 @@
     - **Git Placement:** Moved to the Right Prompt for a cleaner left-hand experience.
     - **Directory Color:** Nordic Grey-Blue (`4C566A`) for visual harmony.
 
+## WezTerm UI Customizations
+- **Front-end:** Switched to `OpenGL` for stable transparency support on WSL.
+- **Tab Bar:** Seamless/Borderless design with `rgba(0, 0, 0, 0.0)` background.
+- **Active Tab:** Inverted Nordic style (Solid color background, dark text).
+- **Inactive Tabs:** Rotating Nordic color palette for text/icons on a transparent background.
+- **Right Status:** Displays Battery info ONLY (Clock removed), using "CodeNewRoman Code Font" in Bright White.
+
 ## Development Approach
 - **Role-Based Development:** The user focuses on design, UX, and requirement definition, while the AI Agent handles all implementation coding in Lua and Shell.

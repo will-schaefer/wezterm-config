@@ -4,17 +4,15 @@ local starlight = require('config.starlight')
 
 return {
    max_fps = 120,
-   front_end = 'WebGpu', ---@type 'WebGpu' | 'OpenGL' | 'Software'
-   webgpu_power_preference = 'HighPerformance',
-   webgpu_preferred_adapter = gpu_adapters:pick_best(),
+   front_end = 'OpenGL', ---@type 'WebGpu' | 'OpenGL' | 'Software'
    underline_thickness = '1.5pt',
 
    -- cursor
    animation_fps = 120,
    cursor_blink_ease_in = 'EaseIn', -- Corrected from EaseInElastic
    cursor_blink_ease_out = 'EaseOut', -- Corrected from EaseOutElastic
-   default_cursor_style = 'BlinkingBlock',
-   cursor_blink_rate = 700,
+   default_cursor_style = 'SteadyBlock',
+   cursor_blink_rate = 0, -- Set to 0 to ensure no blinking logic runs
 
    -- color scheme
    colors = colors,
@@ -51,7 +49,7 @@ return {
    window_close_confirmation = 'NeverPrompt',
 
    -- Transparency & Effects
-   window_background_opacity = 0.85,
+   window_background_opacity = 0.925,
    text_background_opacity = 1.0,
    macos_window_background_blur = 5,
    
@@ -62,6 +60,7 @@ return {
    
    window_frame = {
       active_titlebar_bg = 'rgba(0, 0, 0, 0.0)',
+      font_size = 10.5,
    },
 
    inactive_pane_hsb = {

@@ -1,0 +1,8 @@
+{
+  "track_id": "wezterm_tab_status_styling_20260112",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-12T00:00:00Z",
+  "updated_at": "2026-01-12T00:00:00Z",
+  "description": "Customize WezTerm tab bar background to be transparent and right-status (clock) font."
+}

@@ -58,26 +58,26 @@ local colorscheme = {
    },
 
    tab_bar = {
-      background = 'rgba(0, 0, 0, 0.0)', -- Seamless look
-      inactive_tab_edge = 'rgba(0, 0, 0, 0.0)',
+      background = '#1C2128', -- Darker than main background
+      inactive_tab_edge = '#1C2128',
       active_tab = {
          bg_color = '#2E3440', -- Nord Base
          fg_color = palette.foreground,
       },
       inactive_tab = {
-         bg_color = 'rgba(0, 0, 0, 0.0)',
+         bg_color = '#1C2128',
          fg_color = '#D8DEE9',
       },
       inactive_tab_hover = {
-         bg_color = 'rgba(255, 255, 255, 0.1)',
+         bg_color = '#252A33',
          fg_color = palette.foreground,
       },
       new_tab = {
-         bg_color = 'rgba(0, 0, 0, 0.0)',
+         bg_color = '#1C2128',
          fg_color = palette.foreground,
       },
       new_tab_hover = {
-         bg_color = 'rgba(255, 255, 255, 0.1)',
+         bg_color = '#252A33',
          fg_color = palette.cursor,
          italic = true,
       },

@@ -1,0 +1,8 @@
+{
+  "track_id": "wt_tmux_migration_20260114",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-14T12:00:00Z",
+  "updated_at": "2026-01-14T12:00:00Z",
+  "description": "migrate to windows terminal and tmux with zsh and starship"
+}

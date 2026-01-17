@@ -24,5 +24,6 @@ A personalized, collaborative terminal environment powered by WezTerm and Tmux, 
 - **Fish Shell Optimization:** Specialized configuration and themes for the Fish shell, balancing performance with user-friendly interactivity.
 - **Integrated Tmux Management:** Sophisticated session and pane management that works in harmony with WezTerm.
 - **Dynamic Status Bars:** Information-heavy status lines in both WezTerm and Neovim to show repo status, time, and system info.
+- **Seamless Tab Bar:** A borderless, integrated tab bar design where inactive tabs blend into the window background while the active tab remains distinct with inverted Nordic styling.
 - **On-Demand Help:** Custom keybinding helpers and cheat sheets to facilitate the mastery of complex shortcuts.
 - **Cross-Platform Readiness:** A modular configuration that remains consistent and functional across different operating systems.
