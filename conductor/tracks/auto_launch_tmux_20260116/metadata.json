@@ -1,0 +1,8 @@
+{
+  "id": "auto_launch_tmux_20260116",
+  "name": "Auto-launch Tmux on Shell Start",
+  "description": "Configure Zsh to automatically launch or attach to a Tmux session when the terminal opens.",
+  "status": "TODO",
+  "created_at": "2026-01-16",
+  "dependencies": ["wt_tmux_migration_20260114"]
+}
