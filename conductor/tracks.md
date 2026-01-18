@@ -20,3 +20,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ## [~] Track: migrate to windows terminal and tmux with zsh and starship
 *Link: [./tracks/wt_tmux_migration_20260114/](./tracks/wt_tmux_migration_20260114/)*
+
+---
+
+## [~] **Track: Fix terminal behavior (independent sessions at ~) and remove legacy WezTerm config.**
+*Link: [./conductor/tracks/terminal_behavior_fix_20260117/](./conductor/tracks/terminal_behavior_fix_20260117/)*
