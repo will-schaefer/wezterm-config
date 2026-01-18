@@ -24,10 +24,10 @@ Configure the shell environment to match the desired functionality and aesthetic
 ## Phase 2: Windows Terminal Setup
 Set up the terminal emulator with the project's visual theme and profile settings.
 
-- [ ] **Task: Port Gemini Theme to Windows Terminal**
-    - [ ] Extract the hex color values from the project's WezTerm Gemini theme/ANSI palette.
-    - [ ] Create a Windows Terminal JSON color scheme fragment.
-- [ ] **Task: Configure Default WSL Profile**
+- [x] **Task: Port Gemini Theme to Windows Terminal** a73cacd
+    - [x] Extract the hex color values from the project's WezTerm Gemini theme/ANSI palette.
+    - [x] Create a Windows Terminal JSON color scheme fragment.
+- [~] **Task: Configure Default WSL Profile**
     - [ ] Update Windows Terminal `settings.json` to create/modify the Ubuntu profile.
     - [ ] Set the profile to launch `tmux` directly (which in turn launches Zsh).
     - [ ] Apply the custom Gemini color scheme and set font to "CodeNewRoman Nerd Font" or similar.
