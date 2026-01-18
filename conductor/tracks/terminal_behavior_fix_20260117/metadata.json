@@ -1,0 +1,8 @@
+{
+  "track_id": "terminal_behavior_fix_20260117",
+  "type": "chore",
+  "status": "new",
+  "created_at": "2026-01-17T15:00:00Z",
+  "updated_at": "2026-01-17T15:00:00Z",
+  "description": "Fix terminal behavior (independent sessions at ~) and remove legacy WezTerm config."
+}
