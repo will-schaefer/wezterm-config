@@ -26,7 +26,9 @@ fi
 # Auto-launch Tmux
 # Ensure we are in an interactive shell, not already in tmux, and have tmux installed.
 if [[ -z "$TMUX" ]] && [[ -n "$PS1" ]] && command -v tmux &> /dev/null; then
-    # Attempt to attach to an existing session, or create a new one named 'main'
+    # Always start in Home directory
+    cd ~ || return
+    # Create a unique session name using timestamp to ensure independence
     # -u forces UTF-8
-    exec tmux -u new-session -A -s main
+    exec tmux -u new-session -s "sess-$(date +%s)"
 fi
